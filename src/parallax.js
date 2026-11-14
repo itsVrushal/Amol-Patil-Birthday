@@ -152,8 +152,10 @@ function updateNav(progress, totalSlides) {
   const photoIdx = activeIdx - 1; // subtract intro
   const counterCur = document.querySelector('.counter-current');
   const counterTot = document.querySelector('.counter-total');
-  if (counterCur && photoIdx >= 0 && photoIdx < totalSlides) {
-    counterCur.textContent = String(photoIdx + 1).padStart(2, '0');
+  if (counterCur) {
+    // Never leave a stale end value: intro reads 01, outro reads the last slide
+    const shown = photoIdx < 0 ? 1 : Math.min(photoIdx + 1, totalSlides);
+    counterCur.textContent = String(shown).padStart(2, '0');
   }
   if (counterTot) {
     counterTot.textContent = String(totalSlides).padStart(2, '0');

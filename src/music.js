@@ -94,9 +94,9 @@ function loadTrack(track) {
 
 function updateProgress() {
   if (!audio.duration) return;
-  const pct = (audio.currentTime / audio.duration) * 100;
+  const pct = audio.currentTime / audio.duration;
   const bar = document.getElementById('trackBar');
-  if (bar) bar.style.width = pct + '%';
+  if (bar) bar.style.transform = `scaleX(${pct})`;
 }
 
 // Called externally if config changes track

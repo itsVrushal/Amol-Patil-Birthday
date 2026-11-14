@@ -16,6 +16,9 @@ import { initMusic, setupMusicToggle, tryPlay } from './music.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
+// One switch for every motion decision on the page (27)
+const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 // ── 2. Init i18n ─────────────────────────────────────────────
 initI18n(config);
 
@@ -55,7 +58,11 @@ initLoader(config, config.slides, bootSite);
 // ════════════════════════════════════════════════════════════════
 function bootSite() {
   const app = document.getElementById('app');
-  gsap.to(app, { opacity: 1, duration: 0.6, ease: 'power2.out' });
+  if (REDUCED) {
+    app.style.opacity = '1';
+  } else {
+    gsap.to(app, { opacity: 1, duration: 0.6, ease: 'power2.out' });
+  }
 
   // Show UI chrome
   document.getElementById('langToggle')?.classList.add('visible');
@@ -82,11 +89,13 @@ function bootSite() {
   // Scroll events also try to unlock audio
   lenis.on('scroll', tryPlay);
 
-  // ── Intro animation ─────────────────────────────────────────
+  // ── Intro animation (content is visible by default in CSS) ──
   const introContent = document.querySelector('.intro-content');
   const scrollHint   = document.querySelector('.scroll-hint');
-  gsap.to(introContent, { opacity: 1, y: 0, duration: 1.4, ease: 'power3.out', delay: 0.3 });
-  gsap.to(scrollHint,   { opacity: 1,       duration: 1.0, ease: 'power2.out', delay: 1.4 });
+  if (!REDUCED) {
+    gsap.from(introContent, { opacity: 0, y: 20, duration: 1.4, ease: 'power3.out', delay: 0.3 });
+    gsap.from(scrollHint,   { opacity: 0,        duration: 1.0, ease: 'power2.out', delay: 1.4 });
+  }
 
   // ── Init parallax engine ─────────────────────────────────────
   initParallax(lenis, config.slides.length);
@@ -105,9 +114,24 @@ function bootSite() {
   // ── Auto-scroll after 10s of inactivity ──────────────────────
   const autoScrollDelay = (config.ui?.autoScrollSeconds || 10) * 1000;
   let autoScrollTimer = null;
+  let autoPaused = false;
+  const pauseBtn = document.getElementById('pauseToggle');
+
+  // The visible pause control (18)
+  if (pauseBtn && !REDUCED) {
+    pauseBtn.addEventListener('click', () => {
+      autoPaused = !autoPaused;
+      pauseBtn.classList.toggle('paused', autoPaused);
+      pauseBtn.setAttribute('aria-pressed', String(autoPaused));
+      pauseBtn.setAttribute('aria-label', autoPaused ? 'Resume auto-advance' : 'Pause auto-advance');
+      if (autoPaused) clearTimeout(autoScrollTimer);
+      else resetAutoScroll();
+    });
+  }
 
   function resetAutoScroll() {
     clearTimeout(autoScrollTimer);
+    if (autoPaused || REDUCED) return;
     autoScrollTimer = setTimeout(() => {
       const cur = getActiveSlideIndex();
       // If reached the end, loop back to the first photo slide (index 1)
@@ -119,6 +143,21 @@ function bootSite() {
   }
 
   resetAutoScroll();
+
+  // Hold the auto-advance while the visitor is on a control (18)
+  const holdAutoScroll = () => clearTimeout(autoScrollTimer);
+  [document.getElementById('musicPlayer'), document.getElementById('langToggle'), document.getElementById('dotsNav'), pauseBtn]
+    .filter(Boolean)
+    .forEach((el) => {
+      el.addEventListener('mouseenter', holdAutoScroll);
+      el.addEventListener('mouseleave', () => { if (!autoPaused) resetAutoScroll(); });
+    });
+  document.addEventListener('focusin', holdAutoScroll);
+  document.addEventListener('focusout', () => { if (!autoPaused) resetAutoScroll(); });
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) holdAutoScroll();
+    else if (!autoPaused) resetAutoScroll();
+  });
 
   // Reset timer on any user interaction
   lenis.on('scroll', resetAutoScroll);
@@ -203,11 +242,13 @@ function initCursor() {
 
   let mx = 0, my = 0;
   let rx = 0, ry = 0;
+  let live = false;
 
   document.addEventListener('mousemove', (e) => {
     mx = e.clientX; my = e.clientY;
     dot.style.left  = mx + 'px';
     dot.style.top   = my + 'px';
+    if (!live) { live = true; dot.classList.add('is-live'); ring.classList.add('is-live'); }
   });
 
   // Ring lags behind for smooth feel
@@ -220,15 +261,15 @@ function initCursor() {
   }
   animateRing();
 
-  // Cursor grows on interactive elements
+  // Cursor grows on interactive elements (transform only, 10a)
   document.querySelectorAll('button, a, .dot').forEach(el => {
     el.addEventListener('mouseenter', () => {
-      dot.style.width = '20px'; dot.style.height = '20px';
-      ring.style.width = '52px'; ring.style.height = '52px';
+      dot.classList.add('is-grow');
+      ring.classList.add('is-grow');
     });
     el.addEventListener('mouseleave', () => {
-      dot.style.width = ''; dot.style.height = '';
-      ring.style.width = ''; ring.style.height = '';
+      dot.classList.remove('is-grow');
+      ring.classList.remove('is-grow');
     });
   });
 }

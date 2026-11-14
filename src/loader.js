@@ -11,7 +11,8 @@
 
 import { gsap } from 'gsap';
 
-const SHOW_DURATION = 2800; // ms before auto-dismiss (after fan anim)
+const SHOW_DURATION = 1200; // ms before auto-dismiss (after fan anim)
+const REDUCED = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 export function initLoader(config, slides, onComplete) {
   const loaderEl = document.getElementById('loader');
@@ -19,7 +20,12 @@ export function initLoader(config, slides, onComplete) {
   const nameEl = document.getElementById('loaderName');
   const titleEl = document.querySelector('.loader-title');
 
-  if (!loaderEl || !stackEl) { onComplete(); return; }
+  // Under reduced motion the story serves itself: no loader, straight in (27)
+  if (!loaderEl || !stackEl || REDUCED) {
+    if (loaderEl) loaderEl.style.display = 'none';
+    onComplete();
+    return;
+  }
 
   // Set father's name
   const lang = config.site.defaultLanguage || 'en';
@@ -122,17 +128,17 @@ function dismissLoader(cards, loaderEl, onComplete) {
     y: (i) => (Math.random() - 0.5) * 300,
     x: (i) => (Math.random() - 0.5) * 400,
     rotationZ: (i) => (Math.random() - 0.5) * 60,
-    duration: 0.8,
-    stagger: { amount: 0.3, from: 'center' },
+    duration: 0.5,
+    stagger: { amount: 0.2, from: 'center' },
     ease: 'power3.in',
   });
 
   // Loader slides up and out
   tl.to(loaderEl, {
     yPercent: -105,
-    duration: 1.0,
+    duration: 0.7,
     ease: 'expo.inOut',
-  }, '-=0.3');
+  }, '-=0.2');
 }
 
 function pickPreviewSlides(slides, n) {
