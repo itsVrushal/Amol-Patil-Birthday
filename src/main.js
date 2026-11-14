@@ -1,0 +1,234 @@
+/**
+ * main.js — Entry point
+ * Orchestrates: config load → slide build → loader → parallax → i18n → music
+ */
+
+import { gsap }          from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Lenis              from 'lenis';
+
+import config            from '../config.json';
+import { buildSlides }   from './slides.js';
+import { initParallax, goToSlide, getActiveSlideIndex } from './parallax.js';
+import { initLoader }    from './loader.js';
+import { initI18n, switchLang, renderAll, getLang } from './i18n.js';
+import { initMusic, setupMusicToggle, tryPlay } from './music.js';
+
+gsap.registerPlugin(ScrollTrigger);
+
+// ── 2. Init i18n ─────────────────────────────────────────────
+initI18n(config);
+
+// ── 3. Build slide DOM ────────────────────────────────────────
+buildSlides(config);
+renderAll();
+
+// ── 4. Build dots navigation ──────────────────────────────────
+buildDots(config);
+
+// ── 5. Init music ─────────────────────────────────────────────
+initMusic(config);
+setupMusicToggle();
+
+// Unlock audio playback immediately on first user interaction anywhere
+['click', 'wheel', 'keydown', 'touchstart', 'pointerdown'].forEach(evt => {
+  window.addEventListener(evt, () => tryPlay(), { passive: true });
+});
+
+// ── 6. Custom cursor ──────────────────────────────────────────
+initCursor();
+
+// ── 7. Language toggle ────────────────────────────────────────
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const lang = btn.dataset.lang;
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    switchLang(lang);
+  });
+});
+
+// ── 8. Run opening loader, then boot site ─────────────────────
+initLoader(config, config.slides, bootSite);
+
+
+// ════════════════════════════════════════════════════════════════
+function bootSite() {
+  const app = document.getElementById('app');
+  gsap.to(app, { opacity: 1, duration: 0.6, ease: 'power2.out' });
+
+  // Show UI chrome
+  document.getElementById('langToggle')?.classList.add('visible');
+  document.getElementById('musicPlayer')?.classList.add('visible');
+
+  // ── Lenis smooth scroll (vertical → mapped to horizontal) ───
+  const lenis = new Lenis({
+    orientation: 'vertical',
+    gestureOrientation: 'both',
+    smoothWheel: true,
+    wheelMultiplier: 1.0,
+    touchMultiplier: 2.0,
+    infinite: false,
+    lerp: 0.085,
+  });
+
+  // Link Lenis scroll to GSAP ScrollTrigger
+  lenis.on('scroll', ScrollTrigger.update);
+
+  // Lenis → GSAP ticker
+  gsap.ticker.add((time) => lenis.raf(time * 1000));
+  gsap.ticker.lagSmoothing(0);
+
+  // Scroll events also try to unlock audio
+  lenis.on('scroll', tryPlay);
+
+  // ── Intro animation ─────────────────────────────────────────
+  const introContent = document.querySelector('.intro-content');
+  const scrollHint   = document.querySelector('.scroll-hint');
+  gsap.to(introContent, { opacity: 1, y: 0, duration: 1.4, ease: 'power3.out', delay: 0.3 });
+  gsap.to(scrollHint,   { opacity: 1,       duration: 1.0, ease: 'power2.out', delay: 1.4 });
+
+  // ── Init parallax engine ─────────────────────────────────────
+  initParallax(lenis, config.slides.length);
+
+  // ── Dots click → scroll to slide ────────────────────────────
+  document.querySelectorAll('.dot').forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      goToSlide(i);
+      tryPlay();
+      resetAutoScroll();
+    });
+  });
+
+  const totalDots = document.querySelectorAll('.dot').length;
+
+  // ── Auto-scroll after 10s of inactivity ──────────────────────
+  const autoScrollDelay = (config.ui?.autoScrollSeconds || 10) * 1000;
+  let autoScrollTimer = null;
+
+  function resetAutoScroll() {
+    clearTimeout(autoScrollTimer);
+    autoScrollTimer = setTimeout(() => {
+      const cur = getActiveSlideIndex();
+      // If reached the end, loop back to the first photo slide (index 1)
+      const next = (cur + 1) >= totalDots ? 1 : (cur + 1);
+      goToSlide(next);
+      tryPlay();
+      resetAutoScroll();
+    }, autoScrollDelay);
+  }
+
+  resetAutoScroll();
+
+  // Reset timer on any user interaction
+  lenis.on('scroll', resetAutoScroll);
+  window.addEventListener('wheel', resetAutoScroll, { passive: true });
+  window.addEventListener('touchmove', resetAutoScroll, { passive: true });
+  window.addEventListener('touchstart', resetAutoScroll, { passive: true });
+  window.addEventListener('keydown', resetAutoScroll, { passive: true });
+  window.addEventListener('click', resetAutoScroll, { passive: true });
+
+  // ── Touch swipe navigation for mobile ────────────────────────
+  let touchStartX = 0;
+  let touchStartY = 0;
+  window.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+
+  window.addEventListener('touchend', (e) => {
+    const diffX = touchStartX - e.changedTouches[0].clientX;
+    const diffY = touchStartY - e.changedTouches[0].clientY;
+    // If horizontal swipe is more significant than vertical
+    if (Math.abs(diffX) > 60 && Math.abs(diffX) > Math.abs(diffY)) {
+      const cur = getActiveSlideIndex();
+      if (diffX > 0) {
+        goToSlide(Math.min(cur + 1, totalDots - 1));
+      } else {
+        goToSlide(Math.max(cur - 1, 0));
+      }
+      tryPlay();
+      resetAutoScroll();
+    }
+  }, { passive: true });
+
+  document.addEventListener('keydown', (e) => {
+    const cur = getActiveSlideIndex();
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+      const next = Math.min(cur + 1, totalDots - 1);
+      goToSlide(next);
+      tryPlay();
+      resetAutoScroll();
+    }
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      const prev = Math.max(cur - 1, 0);
+      goToSlide(prev);
+      tryPlay();
+      resetAutoScroll();
+    }
+  });
+
+  // ── Scroll hint hides after first scroll ────────────────────
+  lenis.on('scroll', hideScrollHint, { once: true });
+}
+
+function hideScrollHint() {
+  gsap.to('.scroll-hint', { opacity: 0, duration: 0.5 });
+}
+
+// ════════════════════════════════════════════════════════════════
+function buildDots(config) {
+  const nav = document.getElementById('dotsNav');
+  if (!nav) return;
+
+  // intro + photo slides + outro
+  const total = config.slides.length + 2;
+
+  for (let i = 0; i < total; i++) {
+    const btn = document.createElement('button');
+    btn.className = 'dot' + (i === 0 ? ' active' : '');
+    btn.setAttribute('aria-label', `Go to slide ${i + 1}`);
+    nav.appendChild(btn);
+  }
+}
+
+// ════════════════════════════════════════════════════════════════
+function initCursor() {
+  const dot  = document.createElement('div');
+  const ring = document.createElement('div');
+  dot.className  = 'cursor';
+  ring.className = 'cursor-ring';
+  document.body.appendChild(dot);
+  document.body.appendChild(ring);
+
+  let mx = 0, my = 0;
+  let rx = 0, ry = 0;
+
+  document.addEventListener('mousemove', (e) => {
+    mx = e.clientX; my = e.clientY;
+    dot.style.left  = mx + 'px';
+    dot.style.top   = my + 'px';
+  });
+
+  // Ring lags behind for smooth feel
+  function animateRing() {
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    ring.style.left = rx + 'px';
+    ring.style.top  = ry + 'px';
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+
+  // Cursor grows on interactive elements
+  document.querySelectorAll('button, a, .dot').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      dot.style.width = '20px'; dot.style.height = '20px';
+      ring.style.width = '52px'; ring.style.height = '52px';
+    });
+    el.addEventListener('mouseleave', () => {
+      dot.style.width = ''; dot.style.height = '';
+      ring.style.width = ''; ring.style.height = '';
+    });
+  });
+}

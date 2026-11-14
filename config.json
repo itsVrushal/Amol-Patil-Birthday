@@ -1,0 +1,295 @@
+{
+  "site": {
+    "title": {
+      "en": "Amol Patil",
+      "mr": "अमोल पाटील"
+    },
+    "subtitle": {
+      "en": "A Life Full of Love",
+      "mr": "प्रेमाने भरलेलं आयुष्य"
+    },
+    "defaultLanguage": "en",
+    "font": "Cormorant Garamond",
+    "accentColor": "#c9a96e",
+    "bgColor": "#080808"
+  },
+  "ui": {
+    "autoScrollSeconds": 10,
+    "showProgressBar": true,
+    "showSlideCounter": true,
+    "showScrollHint": true
+  },
+  "intro": {
+    "heading": {
+      "en": "A tribute to",
+      "mr": "एक श्रद्धांजली"
+    },
+    "name": {
+      "en": "Amol Patil",
+      "mr": "अमोल पाटील"
+    },
+    "tagline": {
+      "en": "Scroll to explore his story →",
+      "mr": "त्याची कहाणी जाणून घेण्यासाठी स्क्रोल करा →"
+    }
+  },
+  "music": {
+    "enabled": true,
+    "defaultMuted": false,
+    "loop": true,
+    "tracks": [
+      {
+        "id": "track-1",
+        "title": "Lambiyan",
+        "file": "music/Raataan_Lambiyan_Instru.mp3"
+      }
+    ],
+    "defaultTrack": "track-1"
+  },
+  "slides": [
+    {
+      "id": "slide-1",
+      "backgroundImage": "DSC00049.JPG",
+      "cutoutImage": "DSC00049_cutout.png",
+      "title": {
+        "en": "The Beginning",
+        "mr": "सुरुवात"
+      },
+      "caption": {
+        "en": "Every great story has a beginning.",
+        "mr": "प्रत्येक महान कथेची एक सुरुवात असते."
+      },
+      "year": "2020",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-2",
+      "backgroundImage": "DSC04871.JPG",
+      "cutoutImage": "DSC04871_cutout.png",
+      "title": {
+        "en": "In His Element",
+        "mr": "स्वतःच्या जगात"
+      },
+      "caption": {
+        "en": "Some moments define who we are.",
+        "mr": "काही क्षण आपली ओळख बनवतात."
+      },
+      "year": "2021",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-3",
+      "backgroundImage": "DSC05029.JPG",
+      "cutoutImage": "DSC05029_cutout.png",
+      "title": {
+        "en": "Still Waters",
+        "mr": "शांत मन"
+      },
+      "caption": {
+        "en": "Peace found in simplicity.",
+        "mr": "साधेपणात शांती मिळते."
+      },
+      "year": "2021",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-4",
+      "backgroundImage": "DSC05076.JPG",
+      "cutoutImage": "DSC05076_cutout.png",
+      "title": {
+        "en": "Strength",
+        "mr": "ताकद"
+      },
+      "caption": {
+        "en": "Quiet strength speaks the loudest.",
+        "mr": "शांत ताकद सर्वांत मोठ्याने बोलते."
+      },
+      "year": "2021",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.7
+    },
+    {
+      "id": "slide-5",
+      "backgroundImage": "DSC06394.JPG",
+      "cutoutImage": "DSC06394_cutout.png",
+      "title": {
+        "en": "Wide World",
+        "mr": "विस्तीर्ण जग"
+      },
+      "caption": {
+        "en": "He saw beauty in every horizon.",
+        "mr": "त्याला प्रत्येक क्षितिजात सौंदर्य दिसले."
+      },
+      "year": "2024",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.05,
+      "parallaxIntensity": 1.8
+    },
+    {
+      "id": "slide-6",
+      "backgroundImage": "DSC06407.JPG",
+      "cutoutImage": "DSC06407_cutout.png",
+      "title": {
+        "en": "Presence",
+        "mr": "उपस्थिती"
+      },
+      "caption": {
+        "en": "His presence lit every room.",
+        "mr": "त्याच्या उपस्थितीने प्रत्येक खोली उजळत असे."
+      },
+      "year": "2024",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.05,
+      "parallaxIntensity": 1.7
+    },
+    {
+      "id": "slide-7",
+      "backgroundImage": "DSC06412.JPG",
+      "cutoutImage": "DSC06412_cutout.png",
+      "title": {
+        "en": "Horizons",
+        "mr": "क्षितिजे"
+      },
+      "caption": {
+        "en": "Always looking forward.",
+        "mr": "नेहमीच पुढे पाहत राहणारा."
+      },
+      "year": "2024",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.05,
+      "parallaxIntensity": 1.8
+    },
+    {
+      "id": "slide-8",
+      "backgroundImage": "IMG-20201212-WA0076.jpg",
+      "cutoutImage": "IMG-20201212-WA0076_cutout.png",
+      "title": {
+        "en": "Celebration",
+        "mr": "उत्सव"
+      },
+      "caption": {
+        "en": "Joy shared is joy doubled.",
+        "mr": "सामायिक केलेला आनंद दुप्पट होतो."
+      },
+      "year": "2020",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-9",
+      "backgroundImage": "IMG_20170520_130637.jpg",
+      "cutoutImage": "IMG_20170520_130637_cutout.png",
+      "title": {
+        "en": "Roots",
+        "mr": "मुळे"
+      },
+      "caption": {
+        "en": "Where we come from shapes who we are.",
+        "mr": "आपण कुठून आलो हे आपण कोण आहोत हे ठरवते."
+      },
+      "year": "2017",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.7
+    },
+    {
+      "id": "slide-10",
+      "backgroundImage": "IMG_20211226_104404.jpg",
+      "cutoutImage": "IMG_20211226_104404_cutout.png",
+      "title": {
+        "en": "Winter Light",
+        "mr": "हिवाळ्यातील प्रकाश"
+      },
+      "caption": {
+        "en": "Even in winter, he was warmth.",
+        "mr": "हिवाळ्यातही तो उबदार होता."
+      },
+      "year": "2021",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-11",
+      "backgroundImage": "IMG_20251026_145557584.jpg",
+      "cutoutImage": "IMG_20251026_145557584_cutout.png",
+      "title": {
+        "en": "Golden Hour",
+        "mr": "सोनेरी वेळ"
+      },
+      "caption": {
+        "en": "Some memories glow forever.",
+        "mr": "काही आठवणी नेहमीच चमकत राहतात."
+      },
+      "year": "2025",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-12",
+      "backgroundImage": "IMG_20260601_144731785.jpg",
+      "cutoutImage": "IMG_20260601_144731785_cutout.png",
+      "title": {
+        "en": "This Year",
+        "mr": "या वर्षी"
+      },
+      "caption": {
+        "en": "New memories, same warmth.",
+        "mr": "नव्या आठवणी, तीच उबदारता."
+      },
+      "year": "2026",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.7
+    },
+    {
+      "id": "slide-13",
+      "backgroundImage": "IMG_20261108_201333508.jpg",
+      "cutoutImage": "IMG_20261108_201333508_cutout.png",
+      "title": {
+        "en": "Always",
+        "mr": "नेहमीच"
+      },
+      "caption": {
+        "en": "Some bonds transcend time.",
+        "mr": "काही नाती काळापलीकडे जातात."
+      },
+      "year": "2026",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    }
+  ],
+  "outro": {
+    "heading": {
+      "en": "With Love",
+      "mr": "प्रेमाने"
+    },
+    "message": {
+      "en": "Thank you for every moment.",
+      "mr": "प्रत्येक क्षणासाठी आभारी आहोत."
+    }
+  }
+}
