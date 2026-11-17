@@ -3,13 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>A Tribute</title>
+  <title>A tribute to Amol Patil</title>
+  <meta name="description" content="A tribute to Amol Patil. A life full of love, told in photographs, in English and Marathi." />
+  <link rel="icon" href="data:," />
+  <script>document.documentElement.classList.add('js');</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Serif+Devanagari:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   
-  <script type="module" crossorigin src="/assets/index-272da5ab.js"></script>
-  <link rel="stylesheet" href="/assets/index-3a8a5d27.css">
+  <script type="module" crossorigin src="/assets/index-0ab3c4ae.js"></script>
+  <link rel="stylesheet" href="/assets/index-6831f033.css">
 </head>
 <body>
 
@@ -20,7 +23,7 @@
     <div class="loader-stack" id="loaderStack"></div>
     <div class="loader-title">
       <span class="loader-name" id="loaderName"></span>
-      <span class="loader-enter">— click or scroll to explore —</span>
+      <span class="loader-enter">click or scroll to explore</span>
     </div>
   </div>
 
@@ -37,13 +40,13 @@
        MUSIC PLAYER
   ═══════════════════════════════════════ -->
   <div class="music-player" id="musicPlayer">
-    <button class="music-toggle" id="musicToggle" title="Toggle music">
-      <svg class="icon-sound" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+    <button class="music-toggle" id="musicToggle" title="Toggle music" aria-label="Toggle music">
+      <svg class="icon-sound" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
         <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
         <path class="wave wave-1" d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
         <path class="wave wave-2" d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
       </svg>
-      <svg class="icon-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <svg class="icon-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
         <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
         <line x1="23" y1="9" x2="17" y2="15"/>
         <line x1="17" y1="9" x2="23" y2="15"/>
@@ -65,10 +68,14 @@
 
         <!-- INTRO SLIDE -->
         <section class="slide slide--intro" id="slide-intro">
+          <div class="slide__bg slide__bg--blurred" style="background-image: url('/images/originals/0.jpg')"></div>
+          <div class="slide__vignette"></div>
           <div class="intro-content">
-            <p class="intro-heading" data-i18n="intro.heading"></p>
-            <h1 class="intro-name" data-i18n="intro.name"></h1>
-            <p class="intro-tagline" data-i18n="intro.tagline"></p>
+            <h1 class="intro-name">
+              <span class="intro-dedication" data-i18n="intro.heading">A tribute to</span>
+              <span class="intro-name-line" data-i18n="intro.name">Amol Patil</span>
+            </h1>
+            <p class="intro-tagline" data-i18n="intro.tagline">Scroll to explore his story</p>
           </div>
           <div class="scroll-hint">
             <span class="scroll-hint-line"></span>
@@ -80,9 +87,11 @@
 
         <!-- OUTRO SLIDE -->
         <section class="slide slide--outro" id="slide-outro">
+          <div class="slide__bg slide__bg--blurred" style="background-image: url('/images/originals/0.jpg')"></div>
+          <div class="slide__vignette"></div>
           <div class="outro-content">
-            <p class="outro-heading" data-i18n="outro.heading"></p>
-            <p class="outro-message" data-i18n="outro.message"></p>
+            <p class="outro-heading" data-i18n="outro.heading">With Love</p>
+            <p class="outro-message" data-i18n="outro.message">Thank you for every moment.</p>
           </div>
         </section>
 
@@ -92,11 +101,22 @@
     <!-- DOTS NAVIGATION -->
     <nav class="dots-nav" id="dotsNav" role="navigation" aria-label="Slide navigation"></nav>
 
-    <!-- SLIDE COUNTER -->
-    <div class="slide-counter" id="slideCounter">
-      <span class="counter-current">01</span>
-      <span class="counter-sep"> / </span>
-      <span class="counter-total">13</span>
+    <!-- PAUSE CONTROL + SLIDE COUNTER -->
+    <div class="bottom-right">
+      <button class="pause-btn" id="pauseToggle" type="button" aria-pressed="false" aria-label="Pause auto-advance" title="Pause auto-advance">
+        <svg class="icon-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <line x1="9" y1="6" x2="9" y2="18"/>
+          <line x1="15" y1="6" x2="15" y2="18"/>
+        </svg>
+        <svg class="icon-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <polygon points="8 5 19 12 8 19 8 5"/>
+        </svg>
+      </button>
+      <div class="slide-counter" id="slideCounter">
+        <span class="counter-current">01</span>
+        <span class="counter-sep"> / </span>
+        <span class="counter-total">13</span>
+      </div>
     </div>
   </div>
 

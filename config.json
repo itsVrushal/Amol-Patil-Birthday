@@ -29,9 +29,10 @@
       "mr": "अमोल पाटील"
     },
     "tagline": {
-      "en": "Scroll to explore his story",
-      "mr": "त्याची कहाणी जाणून घेण्यासाठी स्क्रोल करा"
-    }
+      "en": "Scroll to explore his story →",
+      "mr": "त्याची कहाणी जाणून घेण्यासाठी स्क्रोल करा →"
+    },
+    "backgroundImage": "0.jpg"
   },
   "music": {
     "enabled": true,
@@ -49,17 +50,17 @@
   "slides": [
     {
       "id": "slide-1",
-      "backgroundImage": "DSC00049.JPG",
-      "cutoutImage": "DSC00049_cutout.png",
+      "backgroundImage": "1.jpg",
+      "cutoutImage": "1_cutout.png",
       "title": {
-        "en": "The Beginning",
-        "mr": "सुरुवात"
+        "en": "The Golden Dawn",
+        "mr": "सुवर्ण पहाट"
       },
       "caption": {
-        "en": "Every great story has a beginning.",
-        "mr": "प्रत्येक महान कथेची एक सुरुवात असते."
+        "en": "Every great journey starts with a quiet, humble dawn.",
+        "mr": "प्रत्येक महान प्रवासाची सुरुवात एका शांत आणि साध्या पहाटेने होते."
       },
-      "year": "2020",
+      "year": "2016",
       "textPosition": "left",
       "cutoutPosition": "right",
       "cutoutScale": 1.0,
@@ -67,123 +68,159 @@
     },
     {
       "id": "slide-2",
-      "backgroundImage": "DSC04871.JPG",
-      "cutoutImage": "DSC04871_cutout.png",
+      "backgroundImage": "2.jpg",
+      "cutoutImage": "2_cutout.png",
       "title": {
-        "en": "In His Element",
-        "mr": "स्वतःच्या जगात"
+        "en": "Youthful Spirit",
+        "mr": "तरुण मन"
       },
       "caption": {
-        "en": "Some moments define who we are.",
-        "mr": "काही क्षण आपली ओळख बनवतात."
+        "en": "Eyes filled with dreams, heart ready for the world.",
+        "mr": "डोळ्यांत स्वप्ने आणि जगाला सामोरे जाण्याची जिद्द."
       },
-      "year": "2021",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "year": "2008",
+      "textPosition": "right",
+      "cutoutPosition": "left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
     {
       "id": "slide-3",
-      "backgroundImage": "DSC05029.JPG",
-      "cutoutImage": "DSC05029_cutout.png",
+      "backgroundImage": "3.jpg",
+      "cutoutImage": "3_cutout.png",
       "title": {
-        "en": "Still Waters",
-        "mr": "शांत मन"
+        "en": "Rooted in Faith",
+        "mr": "श्रद्धेची मुळे"
       },
       "caption": {
-        "en": "Peace found in simplicity.",
-        "mr": "साधेपणात शांती मिळते."
+        "en": "Strong roots withstand the fiercest winds.",
+        "mr": "मजबूत मुळे वादळातही पाय घट्ट रोवून उभी राहतात."
       },
-      "year": "2021",
+      "year": "2010",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-4",
+      "backgroundImage": "4.jpg",
+      "cutoutImage": "4_cutout.png",
+      "title": {
+        "en": "Simpler Days",
+        "mr": "साधे दिवस"
+      },
+      "caption": {
+        "en": "When happiness was found in life's smallest moments.",
+        "mr": "जेव्हा छोट्या छोट्या गोष्टींतच खरा आनंद सामावलेला होता."
+      },
+      "year": "2016",
       "textPosition": "right",
       "cutoutPosition": "left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
     {
-      "id": "slide-4",
-      "backgroundImage": "DSC05076.JPG",
-      "cutoutImage": "DSC05076_cutout.png",
-      "title": {
-        "en": "Strength",
-        "mr": "ताकद"
-      },
-      "caption": {
-        "en": "Quiet strength speaks the loudest.",
-        "mr": "शांत ताकद सर्वांत मोठ्याने बोलते."
-      },
-      "year": "2021",
-      "textPosition": "left",
-      "cutoutPosition": "right",
-      "cutoutScale": 1.0,
-      "parallaxIntensity": 1.7
-    },
-    {
       "id": "slide-5",
-      "backgroundImage": "DSC06394.JPG",
-      "cutoutImage": "DSC06394_cutout.png",
+      "backgroundImage": "5.jpg",
+      "cutoutImage": "5_cutout.png",
       "title": {
-        "en": "Wide World",
-        "mr": "विस्तीर्ण जग"
+        "en": "The Quiet Thinker",
+        "mr": "शांत विचार"
       },
       "caption": {
-        "en": "He saw beauty in every horizon.",
-        "mr": "त्याला प्रत्येक क्षितिजात सौंदर्य दिसले."
+        "en": "A calm mind observes what words often miss.",
+        "mr": "शांत मन नेहमी शब्दांपलीकडचे सत्य जाणते."
       },
-      "year": "2024",
-      "textPosition": "left",
-      "cutoutPosition": "right",
-      "cutoutScale": 1.05,
-      "parallaxIntensity": 1.8
+      "year": "2016",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
     },
     {
       "id": "slide-6",
-      "backgroundImage": "DSC06407.JPG",
-      "cutoutImage": "DSC06407_cutout.png",
+      "backgroundImage": "6.jpg",
+      "cutoutImage": "6_cutout.png",
       "title": {
-        "en": "Presence",
-        "mr": "उपस्थिती"
+        "en": "Stepping Forward",
+        "mr": "पुढील पाऊल"
       },
       "caption": {
-        "en": "His presence lit every room.",
-        "mr": "त्याच्या उपस्थितीने प्रत्येक खोली उजळत असे."
+        "en": "Courage isn't loud; it takes each step with faith.",
+        "mr": "धैर्य हे दाखवण्याचे नसते, ते प्रत्येक पावलात जाणवते."
       },
-      "year": "2024",
+      "year": "2010",
       "textPosition": "right",
       "cutoutPosition": "left",
-      "cutoutScale": 1.05,
-      "parallaxIntensity": 1.7
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
     },
     {
       "id": "slide-7",
-      "backgroundImage": "DSC06412.JPG",
-      "cutoutImage": "DSC06412_cutout.png",
+      "backgroundImage": "7.jpg",
+      "cutoutImage": "7_cutout.png",
       "title": {
-        "en": "Horizons",
-        "mr": "क्षितिजे"
+        "en": "Pure Nostalgia",
+        "mr": "गोड आठवणी"
       },
       "caption": {
-        "en": "Always looking forward.",
-        "mr": "नेहमीच पुढे पाहत राहणारा."
+        "en": "Memories carved softly in the passage of time.",
+        "mr": "काळाच्या ओघात जपून ठेवलेल्या अनमोल आठवणी."
       },
-      "year": "2024",
+      "year": "2010",
       "textPosition": "left",
       "cutoutPosition": "right",
-      "cutoutScale": 1.05,
-      "parallaxIntensity": 1.8
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
     },
     {
       "id": "slide-8",
-      "backgroundImage": "IMG-20201212-WA0076.jpg",
-      "cutoutImage": "IMG-20201212-WA0076_cutout.png",
+      "backgroundImage": "8.jpg",
+      "cutoutImage": "8_cutout.png",
       "title": {
-        "en": "Celebration",
-        "mr": "उत्सव"
+        "en": "Grace & Dignity",
+        "mr": "संयम आणि प्रतिष्ठा"
       },
       "caption": {
-        "en": "Joy shared is joy doubled.",
-        "mr": "सामायिक केलेला आनंद दुप्पट होतो."
+        "en": "Dignity is a quiet suit worn with poise.",
+        "mr": "संयम आणि प्रतिष्ठा हीच खरी श्रीमंती असते."
+      },
+      "year": "2010",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-9",
+      "backgroundImage": "9.jpg",
+      "cutoutImage": "9_cutout.png",
+      "title": {
+        "en": "The Foundation",
+        "mr": "पाया"
+      },
+      "caption": {
+        "en": "Building life on the rock of principles and honor.",
+        "mr": "मूल्ये आणि तत्वांवर रचलेला आयुष्याचा भक्कम पाया."
+      },
+      "year": "2011",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-10",
+      "backgroundImage": "10.jpg",
+      "cutoutImage": "10_cutout.png",
+      "title": {
+        "en": "Innocence of Time",
+        "mr": "काळाचा निष्पापपणा"
+      },
+      "caption": {
+        "en": "A glance back at where it all began.",
+        "mr": "जिथून सगळं सुरू झालं, त्या क्षणांची एक ओझरती झलक."
       },
       "year": "2020",
       "textPosition": "right",
@@ -192,34 +229,574 @@
       "parallaxIntensity": 1.6
     },
     {
-      "id": "slide-9",
-      "backgroundImage": "IMG_20170520_130637.jpg",
-      "cutoutImage": "IMG_20170520_130637_cutout.png",
+      "id": "slide-11",
+      "backgroundImage": "11.jpg",
+      "cutoutImage": "11_cutout.png",
       "title": {
-        "en": "Roots",
-        "mr": "मुळे"
+        "en": "Silent Dedication",
+        "mr": "मूक निष्ठा"
       },
       "caption": {
-        "en": "Where we come from shapes who we are.",
-        "mr": "आपण कुठून आलो हे आपण कोण आहोत हे ठरवते."
+        "en": "Working tirelessly with devotion in every hour.",
+        "mr": "प्रत्येक क्षणी निष्ठेने आणि चिकाटीने केलेले कार्य."
       },
-      "year": "2017",
+      "year": "2021",
       "textPosition": "left",
       "cutoutPosition": "right",
       "cutoutScale": 1.0,
-      "parallaxIntensity": 1.7
+      "parallaxIntensity": 1.6
     },
     {
-      "id": "slide-10",
-      "backgroundImage": "IMG_20211226_104404.jpg",
-      "cutoutImage": "IMG_20211226_104404_cutout.png",
+      "id": "slide-12",
+      "backgroundImage": "12.jpg",
+      "cutoutImage": "12_cutout.png",
       "title": {
-        "en": "Winter Light",
-        "mr": "हिवाळ्यातील प्रकाश"
+        "en": "The Working Hands",
+        "mr": "कष्टाळू हात"
       },
       "caption": {
-        "en": "Even in winter, he was warmth.",
-        "mr": "हिवाळ्यातही तो उबदार होता."
+        "en": "Hands that shaped a home and guarded a family.",
+        "mr": "ज्या हातांनी घराला आधार दिला आणि कुटुंबाला सावरले."
+      },
+      "year": "2022",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-13",
+      "backgroundImage": "12.1.jpg",
+      "cutoutImage": "12.1_cutout.png",
+      "title": {
+        "en": "Unwavering Focus",
+        "mr": "अढळ लक्ष"
+      },
+      "caption": {
+        "en": "Clear vision in the midst of daily duties.",
+        "mr": "दैनंदिन जबाबदाऱ्यांमध्येही जपलेली स्पष्ट दृष्टी."
+      },
+      "year": "2022",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-14",
+      "backgroundImage": "13.jpg",
+      "cutoutImage": "13_cutout.png",
+      "title": {
+        "en": "A Man of Word",
+        "mr": "शब्दाचा पक्का"
+      },
+      "caption": {
+        "en": "Integrity that never needed a contract.",
+        "mr": "ज्याचे बोलणेच विश्वासाचे सर्वात मोठे प्रमाण होते."
+      },
+      "year": "2022",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-15",
+      "backgroundImage": "14.jpg",
+      "cutoutImage": "14_cutout.png",
+      "title": {
+        "en": "Pillar of Strength",
+        "mr": "ताकदीचा आधारस्तंभ"
+      },
+      "caption": {
+        "en": "The steady rock through every life storm.",
+        "mr": "आयुष्यातील प्रत्येक वादळात स्थिर उभा राहिलेला खडक."
+      },
+      "year": "2022",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-16",
+      "backgroundImage": "14.1.jpg",
+      "cutoutImage": "14.1_cutout.png",
+      "title": {
+        "en": "Honest Labor",
+        "mr": "प्रामाणिक कष्ट"
+      },
+      "caption": {
+        "en": "Pride earned through honest toil and sweat.",
+        "mr": "प्रामाणिक घामाने कमावलेला खरा स्वाभिमान."
+      },
+      "year": "2024",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-17",
+      "backgroundImage": "15.jpg",
+      "cutoutImage": "15_cutout.png",
+      "title": {
+        "en": "Steering the Way",
+        "mr": "दिशा दाखवणारा"
+      },
+      "caption": {
+        "en": "Always navigating ahead with wisdom.",
+        "mr": "नेहमीच समंजसपणे योग्य मार्ग दाखवणारा मार्गदर्शक."
+      },
+      "year": "2012",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-18",
+      "backgroundImage": "15.1.jpg",
+      "cutoutImage": "15.1_cutout.png",
+      "title": {
+        "en": "Resilience",
+        "mr": "लढाऊ वृत्ती"
+      },
+      "caption": {
+        "en": "Bending with the wind, yet never breaking.",
+        "mr": "वादळात झुकणारा, पण कधीही न मोडणारा स्वभाव."
+      },
+      "year": "2012",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-19",
+      "backgroundImage": "15.2.jpg",
+      "cutoutImage": "15.2_cutout.png",
+      "title": {
+        "en": "Devoted Heart",
+        "mr": "समर्पित हृदय"
+      },
+      "caption": {
+        "en": "Giving everything without asking for anything in return.",
+        "mr": "कोणतीही अपेक्षा न ठेवता फक्त भरभरून देणारे मन."
+      },
+      "year": "2012",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-20",
+      "backgroundImage": "16.jpg",
+      "cutoutImage": "16_cutout.png",
+      "title": {
+        "en": "The Builder",
+        "mr": "घर उभा करणारा"
+      },
+      "caption": {
+        "en": "Crafting a shelter of love, brick by loving brick.",
+        "mr": "प्रेमाच्या प्रत्येक वीटेने घराचे नंदनवन करणारा."
+      },
+      "year": "2022",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-21",
+      "backgroundImage": "17.jpg",
+      "cutoutImage": "17_cutout.png",
+      "title": {
+        "en": "Two Paths United",
+        "mr": "दोन जीवांचे मिलन"
+      },
+      "caption": {
+        "en": "A beautiful union walking side by side.",
+        "mr": "हातात हात घालून सुरू झालेला एक सुंदर जीवनप्रवास."
+      },
+      "year": "2022",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-22",
+      "backgroundImage": "18.jpg",
+      "cutoutImage": "18_cutout.png",
+      "title": {
+        "en": "Gentle Companionship",
+        "mr": "शांत साथ"
+      },
+      "caption": {
+        "en": "Understanding each other in the quietest glances.",
+        "mr": "शब्दांशिवाय एकमेकांना समजून घेणारी प्रेमळ साथ."
+      },
+      "year": "2022",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-23",
+      "backgroundImage": "19.jpg",
+      "cutoutImage": "19_cutout.png",
+      "title": {
+        "en": "Warmth of Home",
+        "mr": "घराची उब"
+      },
+      "caption": {
+        "en": "Home was wherever his warm laughter lived.",
+        "mr": "त्याचे हसू जिथे होते, तिथेच खऱ्या अर्थाने घर होते."
+      },
+      "year": "2022",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-24",
+      "backgroundImage": "20.jpg",
+      "cutoutImage": "20_cutout.png",
+      "title": {
+        "en": "Shared Joy",
+        "mr": "सामायिक आनंद"
+      },
+      "caption": {
+        "en": "Happiness is twice as sweet when shared together.",
+        "mr": "आनंद जेव्हा वाटून घेतला जातो, तेव्हा तो द्विगुणित होतो."
+      },
+      "year": "2022",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-25",
+      "backgroundImage": "21.jpg",
+      "cutoutImage": "21_cutout.png",
+      "title": {
+        "en": "Enduring Love",
+        "mr": "चिरंतन प्रेम"
+      },
+      "caption": {
+        "en": "A love that grows richer with every passing season.",
+        "mr": "ऋतू बदलले तरी अधिकच बहरत जाणारे निस्वार्थ प्रेम."
+      },
+      "year": "2022",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-26",
+      "backgroundImage": "22.jpg",
+      "cutoutImage": "22_cutout.png",
+      "title": {
+        "en": "Moments of Peace",
+        "mr": "शांततेचे क्षण"
+      },
+      "caption": {
+        "en": "Tea, gentle breeze, and the comfort of silence.",
+        "mr": "एक कप चहा, मंद वारा आणि शांततेतली आल्हाददायक सोबत."
+      },
+      "year": "2022",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-27",
+      "backgroundImage": "23.jpg",
+      "cutoutImage": "23_cutout.png",
+      "title": {
+        "en": "The Welcoming Smile",
+        "mr": "प्रेमळ हास्य"
+      },
+      "caption": {
+        "en": "A smile that welcomed everyone like kin.",
+        "mr": "प्रत्येकाला आपलेसे करून घेणारे अत्यंत प्रेमळ हास्य."
+      },
+      "year": "2022",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-28",
+      "backgroundImage": "24.jpg",
+      "cutoutImage": "24_cutout.png",
+      "title": {
+        "en": "Tender Bond",
+        "mr": "नाजूक बंध"
+      },
+      "caption": {
+        "en": "Ties woven not by words, but by selfless deeds.",
+        "mr": "शब्दांपेक्षा कृतीतून विणलेली अतूट आणि घट्ट नाती."
+      },
+      "year": "2022",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-29",
+      "backgroundImage": "25.jpg",
+      "cutoutImage": "25_cutout.png",
+      "title": {
+        "en": "Joyful Presence",
+        "mr": "आनंदी सहवास"
+      },
+      "caption": {
+        "en": "He brought light into every room he entered.",
+        "mr": "त्यांच्या उपस्थितीने प्रत्येक खोली आपोआप उजळून निघायची."
+      },
+      "year": "2022",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-30",
+      "backgroundImage": "26.jpg",
+      "cutoutImage": "26_cutout.png",
+      "title": {
+        "en": "Home & Hearth",
+        "mr": "घर आणि संसार"
+      },
+      "caption": {
+        "en": "Where love was served on every plate.",
+        "mr": "जिथे प्रत्येक क्षणात आणि घासात प्रेम भरलेले होते."
+      },
+      "year": "2023",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-31",
+      "backgroundImage": "27.jpg",
+      "cutoutImage": "27_cutout.png",
+      "title": {
+        "en": "Father's Guidance",
+        "mr": "वडिलांचे मार्गदर्शन"
+      },
+      "caption": {
+        "en": "Leading not by demand, but by shining example.",
+        "mr": "हुकूम देऊन नाही, तर स्वतःच्या आचरणातून दिशा दाखवणारे."
+      },
+      "year": "2023",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-32",
+      "backgroundImage": "28.jpg",
+      "cutoutImage": "28_cutout.png",
+      "title": {
+        "en": "A Father's Pride",
+        "mr": "वडिलांचा अभिमान"
+      },
+      "caption": {
+        "en": "Seeing his dreams flourish in his children's eyes.",
+        "mr": "आपल्या मुलांच्या डोळ्यांत स्वतःची स्वप्ने फुलताना पाहणारा."
+      },
+      "year": "2023",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-33",
+      "backgroundImage": "29.jpg",
+      "cutoutImage": "29_cutout.png",
+      "title": {
+        "en": "Gentle Lessons",
+        "mr": "शिकवणी"
+      },
+      "caption": {
+        "en": "Lessons of kindness taught through daily life.",
+        "mr": "दैनंदिन जीवनातून दिलेली माणुसकीची आणि स्नेहाची शिकवण."
+      },
+      "year": "2023",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-34",
+      "backgroundImage": "30.jpg",
+      "cutoutImage": "30_cutout.png",
+      "title": {
+        "en": "Guardian Angel",
+        "mr": "रक्षक"
+      },
+      "caption": {
+        "en": "Always standing guard so others could soar.",
+        "mr": "मुलांनी उंचावर झेप घ्यावी म्हणून पाठीशी उभा असलेला आधार."
+      },
+      "year": "2023",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-35",
+      "backgroundImage": "31.jpg",
+      "cutoutImage": "31_cutout.png",
+      "title": {
+        "en": "Warm Embrace",
+        "mr": "उबदार मिठी"
+      },
+      "caption": {
+        "en": "In his hug, the whole world felt safe.",
+        "mr": "त्यांच्या मिठीत साऱ्या जगाची सुरक्षितता जाणवायची."
+      },
+      "year": "2023",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-36",
+      "backgroundImage": "32.jpg",
+      "cutoutImage": "32_cutout.png",
+      "title": {
+        "en": "Patient Teacher",
+        "mr": "संयमी मार्गदर्शक"
+      },
+      "caption": {
+        "en": "Patience that listened before speaking.",
+        "mr": "बोलण्याआधी शांतपणे ऐकून घेणारा संयमी स्वभाव."
+      },
+      "year": "2023",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-37",
+      "backgroundImage": "33.jpg",
+      "cutoutImage": "33_cutout.png",
+      "title": {
+        "en": "Laughter Together",
+        "mr": "एकत्र हास्य"
+      },
+      "caption": {
+        "en": "Laughter echoing across generations.",
+        "mr": "पिढ्यानपिढ्या गुंजणारे मनमोकळे आणि दिलखुलास हास्य."
+      },
+      "year": "2015",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-38",
+      "backgroundImage": "34.jpg",
+      "cutoutImage": "34_cutout.png",
+      "title": {
+        "en": "Shared Milestones",
+        "mr": "यशाचे टप्पे"
+      },
+      "caption": {
+        "en": "Every triumph celebrated with a grateful heart.",
+        "mr": "प्रत्येक छोट्या-मोठ्या यशाचे कृतज्ञतेने केलेले स्वागत."
+      },
+      "year": "2016",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-39",
+      "backgroundImage": "35.jpg",
+      "cutoutImage": "35_cutout.png",
+      "title": {
+        "en": "Unconditional Love",
+        "mr": "अथांग प्रेम"
+      },
+      "caption": {
+        "en": "Love that knew no conditions or boundaries.",
+        "mr": "ज्या प्रेमाला ना कसली मर्यादा होती, ना कोणती अट."
+      },
+      "year": "2023",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-40",
+      "backgroundImage": "36.jpg",
+      "cutoutImage": "36_cutout.png",
+      "title": {
+        "en": "The Guiding Beacon",
+        "mr": "दीपस्तंभ"
+      },
+      "caption": {
+        "en": "A lighthouse in life's rough waters.",
+        "mr": "आयुष्याच्या प्रत्येक वळणावर वाट दाखवणारा दीपस्तंभ."
+      },
+      "year": "2016",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-41",
+      "backgroundImage": "37.jpg",
+      "cutoutImage": "37_cutout.png",
+      "title": {
+        "en": "Festival Lights",
+        "mr": "उत्सवाचे तेज"
+      },
+      "caption": {
+        "en": "Glowing brighter than the festival lamps.",
+        "mr": "दिवाळीच्या दिव्यांपेक्षाही अधिक उजळणारे चेहऱ्यावरचे तेज."
+      },
+      "year": "2021",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-42",
+      "backgroundImage": "38.jpg",
+      "cutoutImage": "38_cutout.png",
+      "title": {
+        "en": "Family Gathering",
+        "mr": "कुटुंब मेळावा"
+      },
+      "caption": {
+        "en": "Surrounded by the ones who held his heart.",
+        "mr": "आपल्या प्रियजनांच्या गोड गोतावळ्यात घालवलेले क्षण."
       },
       "year": "2021",
       "textPosition": "right",
@@ -228,16 +805,52 @@
       "parallaxIntensity": 1.6
     },
     {
-      "id": "slide-11",
-      "backgroundImage": "IMG_20251026_145557584.jpg",
-      "cutoutImage": "IMG_20251026_145557584_cutout.png",
+      "id": "slide-43",
+      "backgroundImage": "39.jpg",
+      "cutoutImage": "39_cutout.png",
       "title": {
-        "en": "Golden Hour",
-        "mr": "सोनेरी वेळ"
+        "en": "Colors of Joy",
+        "mr": "आनंदाचे रंग"
       },
       "caption": {
-        "en": "Some memories glow forever.",
-        "mr": "काही आठवणी नेहमीच चमकत राहतात."
+        "en": "Drenched in the laughter of celebrations.",
+        "mr": "उत्सवाच्या आणि रंगांच्या उत्साहात न्हाऊन निघालेले मन."
+      },
+      "year": "2021",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-44",
+      "backgroundImage": "39.1.jpg",
+      "cutoutImage": "39.1_cutout.png",
+      "title": {
+        "en": "Sacred Traditions",
+        "mr": "पवित्र परंपरा"
+      },
+      "caption": {
+        "en": "Honoring traditions with a humble bow.",
+        "mr": "परंपरा आणि संस्कृतीचा आदराने जपलेला वारसा."
+      },
+      "year": "2023",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-45",
+      "backgroundImage": "39.2.jpg",
+      "cutoutImage": "39.2_cutout.png",
+      "title": {
+        "en": "Festive Cheer",
+        "mr": "सणाचा उत्साह"
+      },
+      "caption": {
+        "en": "When joy spilled over into every corner.",
+        "mr": "घराच्या कानाकोपऱ्यात भरून राहिलेला सणाचा आनंद."
       },
       "year": "2025",
       "textPosition": "left",
@@ -246,38 +859,974 @@
       "parallaxIntensity": 1.6
     },
     {
-      "id": "slide-12",
-      "backgroundImage": "IMG_20260601_144731785.jpg",
-      "cutoutImage": "IMG_20260601_144731785_cutout.png",
+      "id": "slide-46",
+      "backgroundImage": "40.jpg",
+      "cutoutImage": "40_cutout.png",
       "title": {
-        "en": "This Year",
-        "mr": "या वर्षी"
+        "en": "Wedding Bells",
+        "mr": "मंगल क्षण"
       },
       "caption": {
-        "en": "New memories, same warmth.",
-        "mr": "नव्या आठवणी, तीच उबदारता."
+        "en": "Tears of joy in moments of celebration.",
+        "mr": "मंगलाष्टकांच्या सुरांमध्ये दाटून आलेले आनंदाश्रू."
+      },
+      "year": "2017",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-47",
+      "backgroundImage": "41.jpg",
+      "cutoutImage": "41_cutout.png",
+      "title": {
+        "en": "The Blessing Hand",
+        "mr": "आशीर्वादाचा हात"
+      },
+      "caption": {
+        "en": "A palm placed gently upon bowed heads.",
+        "mr": "माथ्यावर प्रेमाने आणि आपुलकीने ठेवलेला आशीर्वादाचा हात."
+      },
+      "year": "2023",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-48",
+      "backgroundImage": "42.jpg",
+      "cutoutImage": "42_cutout.png",
+      "title": {
+        "en": "Feast of Love",
+        "mr": "प्रीतीचे भोजन"
+      },
+      "caption": {
+        "en": "Meals sweetened by togetherness.",
+        "mr": "एकत्र बसून खाल्लेल्या अन्नाला मिळालेली प्रेमाची गोडी."
+      },
+      "year": "2023",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-49",
+      "backgroundImage": "43.jpg",
+      "cutoutImage": "43_cutout.png",
+      "title": {
+        "en": "Harmony",
+        "mr": "एकता"
+      },
+      "caption": {
+        "en": "Bringing hearts together in harmony.",
+        "mr": "सर्वांना प्रेमाच्या एका धाग्यात गुंफून ठेवणारी शक्ती."
+      },
+      "year": "2023",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-50",
+      "backgroundImage": "44.jpg",
+      "cutoutImage": "44_cutout.png",
+      "title": {
+        "en": "Golden Days",
+        "mr": "सोनेरी दिवस"
+      },
+      "caption": {
+        "en": "Moments that shine like timeless gold.",
+        "mr": "काळाच्या कसोटीवर खरे उतरलेले सोन्यासारखे दिवस."
+      },
+      "year": "2023",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-51",
+      "backgroundImage": "45.jpg",
+      "cutoutImage": "45_cutout.png",
+      "title": {
+        "en": "Kinship",
+        "mr": "नातेसंबंध"
+      },
+      "caption": {
+        "en": "Celebrating the timeless beauty of family.",
+        "mr": "नात्यांमधील जिव्हाळा आणि आपुलकीचा साजरा केलेला सोहळा."
+      },
+      "year": "2025",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-52",
+      "backgroundImage": "46.jpg",
+      "cutoutImage": "46_cutout.png",
+      "title": {
+        "en": "Radiant Smiles",
+        "mr": "तेजस्वी हास्य"
+      },
+      "caption": {
+        "en": "Smiles that needed no camera to shine.",
+        "mr": "मनातून ओसंडून वाहणारे अस्सल आणि तेजस्वी हास्य."
+      },
+      "year": "2023",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-53",
+      "backgroundImage": "47.jpg",
+      "cutoutImage": "47_cutout.png",
+      "title": {
+        "en": "Warm Welcomes",
+        "mr": "प्रेमळ स्वागत"
+      },
+      "caption": {
+        "en": "An open door and an open heart.",
+        "mr": "नेहमी उघडी असलेली घराची आणि मनाची कवाडे."
+      },
+      "year": "2023",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-54",
+      "backgroundImage": "48.jpg",
+      "cutoutImage": "48_cutout.png",
+      "title": {
+        "en": "Sweet Memories",
+        "mr": "मधुर आठवणी"
+      },
+      "caption": {
+        "en": "Sweetness that lingers through the years.",
+        "mr": "वर्षानुवर्षे मनात दरवळणारा आठवणींचा सुगंध."
+      },
+      "year": "2023",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-55",
+      "backgroundImage": "49.jpg",
+      "cutoutImage": "49_cutout.png",
+      "title": {
+        "en": "The Cheerful Host",
+        "mr": "आदरातिथ्य"
+      },
+      "caption": {
+        "en": "Making everyone feel treasured and seen.",
+        "mr": "घरी आलेल्या प्रत्येकाला सन्मान आणि प्रेम देणारा स्वभाव."
+      },
+      "year": "2024",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-56",
+      "backgroundImage": "50.jpg",
+      "cutoutImage": "50_cutout.png",
+      "title": {
+        "en": "The Open Road",
+        "mr": "मोकळी वाट"
+      },
+      "caption": {
+        "en": "Wandering with an open spirit toward new skies.",
+        "mr": "नव्या आकाशाच्या शोधात मोकळ्या वाटेने निघालेला प्रवासी."
+      },
+      "year": "2024",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-57",
+      "backgroundImage": "51.jpg",
+      "cutoutImage": "51_cutout.png",
+      "title": {
+        "en": "Whispers of Nature",
+        "mr": "निसर्गाचा सहवास"
+      },
+      "caption": {
+        "en": "Finding divine peace under green canopies.",
+        "mr": "हिरव्यागार निसर्गाच्या कुशीत मिळालेली आत्मिक शांतता."
+      },
+      "year": "2023",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-58",
+      "backgroundImage": "52.jpg",
+      "cutoutImage": "52_cutout.png",
+      "title": {
+        "en": "Mountain Horizons",
+        "mr": "पर्वतरांगा"
+      },
+      "caption": {
+        "en": "Standing tall where the earth meets the heavens.",
+        "mr": "क्षितिजावर भेटणाऱ्या डोंगरदऱ्यांचे विलोभनीय रूप."
+      },
+      "year": "2025",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-59",
+      "backgroundImage": "52.2.jpg",
+      "cutoutImage": "52.2_cutout.png",
+      "title": {
+        "en": "Sacred Journey",
+        "mr": "तीर्थयात्रा"
+      },
+      "caption": {
+        "en": "Steps walked in reverence and prayer.",
+        "mr": "श्रद्धा आणि भक्तीभावाने टाकलेले प्रत्येक पवित्र पाऊल."
+      },
+      "year": "2024",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-60",
+      "backgroundImage": "53.jpg",
+      "cutoutImage": "53_cutout.png",
+      "title": {
+        "en": "Breeze of the Coast",
+        "mr": "सागरी लाटा"
+      },
+      "caption": {
+        "en": "Listening to the ocean's timeless songs.",
+        "mr": "समुद्राच्या अथांग लाटांचे संगीत अनुभवताना."
+      },
+      "year": "2025",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-61",
+      "backgroundImage": "54.jpg",
+      "cutoutImage": "54_cutout.png",
+      "title": {
+        "en": "Wandering Soul",
+        "mr": "भटकांती"
+      },
+      "caption": {
+        "en": "Every new place welcomed with wonder.",
+        "mr": "प्रत्येक नवीन जागेचे कुतूहलाने केलेले स्वागत."
+      },
+      "year": "2023",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-62",
+      "backgroundImage": "55.jpg",
+      "cutoutImage": "55_cutout.png",
+      "title": {
+        "en": "Tranquil Waters",
+        "mr": "शांत जल"
+      },
+      "caption": {
+        "en": "Reflections of a soul that found peace.",
+        "mr": "शांत पाण्यात उमटलेले समाधानी मनाचे प्रतिबिंब."
+      },
+      "year": "2024",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-63",
+      "backgroundImage": "56.jpg",
+      "cutoutImage": "56_cutout.png",
+      "title": {
+        "en": "Journeying Together",
+        "mr": "एकत्र प्रवास"
+      },
+      "caption": {
+        "en": "The best journeys are taken with loved ones.",
+        "mr": "सर्वात सुंदर प्रवास तोच, जो आपुलकीच्या माणसांसोबत होतो."
+      },
+      "year": "2024",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-64",
+      "backgroundImage": "57.jpg",
+      "cutoutImage": "57_cutout.png",
+      "title": {
+        "en": "Serenade of Trees",
+        "mr": "वृक्षांची सावली"
+      },
+      "caption": {
+        "en": "Sheltered by the wisdom of the earth.",
+        "mr": "झाडांच्या थंडगार सावलीत मिळालेली तृप्त विश्रांती."
+      },
+      "year": "2024",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-65",
+      "backgroundImage": "58.jpg",
+      "cutoutImage": "58_cutout.png",
+      "title": {
+        "en": "Roads Less Traveled",
+        "mr": "अनोख्या वाटा"
+      },
+      "caption": {
+        "en": "Finding treasures off the beaten path.",
+        "mr": "नेहमीच्या वाटा सोडून शोधलेले अनपेक्षित सौंदर्य."
+      },
+      "year": "2025",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-66",
+      "backgroundImage": "59.jpg",
+      "cutoutImage": "59_cutout.png",
+      "title": {
+        "en": "Sunset Hues",
+        "mr": "संध्याकाळचे रंग"
+      },
+      "caption": {
+        "en": "The sky painted in evening gold.",
+        "mr": "मावळत्या सूर्याच्या सोनेरी रंगात न्हाऊन निघालेले आकाश."
+      },
+      "year": "2025",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-67",
+      "backgroundImage": "60.jpg",
+      "cutoutImage": "60_cutout.png",
+      "title": {
+        "en": "Quiet Sanctuary",
+        "mr": "शांत निवारा"
+      },
+      "caption": {
+        "en": "A place where the soul could simply breathe.",
+        "mr": "जिथे मन सर्व चिंता विसरून शांत विसावू शकत होते."
+      },
+      "year": "2025",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-68",
+      "backgroundImage": "61.jpg",
+      "cutoutImage": "61_cutout.png",
+      "title": {
+        "en": "Morning Light",
+        "mr": "सकाळचा कोवळा ऊन"
+      },
+      "caption": {
+        "en": "Welcoming the first golden rays.",
+        "mr": "दिवसाच्या पहिल्या कोवळ्या किरणांचे प्रसन्न स्वागत."
+      },
+      "year": "2025",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-69",
+      "backgroundImage": "62.jpg",
+      "cutoutImage": "62_cutout.png",
+      "title": {
+        "en": "The Traveler",
+        "mr": "सफर"
+      },
+      "caption": {
+        "en": "Collecting memories instead of things.",
+        "mr": "वस्तूंऐवजी अनमोल क्षणांची केलेली समृद्ध पुंजी."
+      },
+      "year": "2025",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-70",
+      "backgroundImage": "63.jpg",
+      "cutoutImage": "63_cutout.png",
+      "title": {
+        "en": "Endless Vistas",
+        "mr": "विस्तीर्ण क्षितीज"
+      },
+      "caption": {
+        "en": "Gazing into horizons that stretch forever.",
+        "mr": "दूरवर पसरलेल्या क्षितिजाकडे टक लावून पाहताना."
+      },
+      "year": "2025",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-71",
+      "backgroundImage": "64.jpg",
+      "cutoutImage": "64_cutout.png",
+      "title": {
+        "en": "Seasoned Eyes",
+        "mr": "अनुभवी दृष्टी"
+      },
+      "caption": {
+        "en": "Eyes that have seen the world with kindness.",
+        "mr": "ज्याने जगाकडे नेहमीच दयाळू आणि समंजस नजरेने पाहिले."
+      },
+      "year": "2025",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-72",
+      "backgroundImage": "67.jpg",
+      "cutoutImage": "67_cutout.png",
+      "title": {
+        "en": "Strength in Silence",
+        "mr": "शांत ताकद"
+      },
+      "caption": {
+        "en": "A quiet heart speaks with majestic volume.",
+        "mr": "शांतता हीच ज्यांच्या व्यक्तिमत्त्वाची खरी ताकद होती."
+      },
+      "year": "2025",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-73",
+      "backgroundImage": "68.jpg",
+      "cutoutImage": "68_cutout.png",
+      "title": {
+        "en": "Contentment",
+        "mr": "समाधान"
+      },
+      "caption": {
+        "en": "True wealth is knowing you have enough.",
+        "mr": "मनातील समाधान हीच आयुष्यातील सर्वात मोठी संपत्ती."
+      },
+      "year": "2025",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-74",
+      "backgroundImage": "69.jpg",
+      "cutoutImage": "69_cutout.png",
+      "title": {
+        "en": "Elder's Warmth",
+        "mr": "वडिलधाऱ्यांची माया"
+      },
+      "caption": {
+        "en": "A sheltering tree for all who come near.",
+        "mr": "जवळ येणाऱ्या प्रत्येकाला सावली देणारा महावृक्ष."
+      },
+      "year": "2025",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-75",
+      "backgroundImage": "70.jpg",
+      "cutoutImage": "70_cutout.png",
+      "title": {
+        "en": "Words of Gold",
+        "mr": "मोलाचे बोल"
+      },
+      "caption": {
+        "en": "Spoken rarely, valued always.",
+        "mr": "कमी बोलणारे, पण बोलतील ते लाख मोलाचे ठरणारे."
+      },
+      "year": "2025",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-76",
+      "backgroundImage": "71.jpg",
+      "cutoutImage": "71_cutout.png",
+      "title": {
+        "en": "Peaceful Stroll",
+        "mr": "शांत फेरफटका"
+      },
+      "caption": {
+        "en": "Walking with contentment in every step.",
+        "mr": "प्रत्येक पावलावर समाधानाचा अनुभव घेत चालताना."
+      },
+      "year": "2025",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-77",
+      "backgroundImage": "72.jpg",
+      "cutoutImage": "72_cutout.png",
+      "title": {
+        "en": "The Calm Port",
+        "mr": "शांत किनारा"
+      },
+      "caption": {
+        "en": "A harbor of safety for the next generation.",
+        "mr": "पुढच्या पिढीसाठी सुरक्षित आणि प्रेमळ किनारा."
+      },
+      "year": "2025",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-78",
+      "backgroundImage": "73.jpg",
+      "cutoutImage": "73_cutout.png",
+      "title": {
+        "en": "Simple Pleasures",
+        "mr": "साधे सुख"
+      },
+      "caption": {
+        "en": "Finding immense joy in modest moments.",
+        "mr": "साध्या साध्या गोष्टींतून मिळणारा अथांग आनंद."
+      },
+      "year": "2025",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-79",
+      "backgroundImage": "74.jpg",
+      "cutoutImage": "74_cutout.png",
+      "title": {
+        "en": "Gentle Spirit",
+        "mr": "निरागस मन"
+      },
+      "caption": {
+        "en": "Tender-hearted through all life's trials.",
+        "mr": "आयुष्याच्या प्रत्येक परीक्षेत जपलेले निष्पाप आणि निर्मळ मन."
+      },
+      "year": "2025",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-80",
+      "backgroundImage": "75.jpg",
+      "cutoutImage": "75_cutout.png",
+      "title": {
+        "en": "Guiding Star",
+        "mr": "ध्रुव तारा"
+      },
+      "caption": {
+        "en": "An unchanging reference point of goodness.",
+        "mr": "सद्गुणांचा कधीही न बदलणारा अढळ ध्रुव तारा."
+      },
+      "year": "2025",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-81",
+      "backgroundImage": "76.jpg",
+      "cutoutImage": "76_cutout.png",
+      "title": {
+        "en": "A Life of Honor",
+        "mr": "सन्मानाचे आयुष्य"
+      },
+      "caption": {
+        "en": "Living without regrets, full of honor.",
+        "mr": "अभिमानाने आणि सन्मानाने जगलेले एक आदर्श आयुष्य."
+      },
+      "year": "2025",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-82",
+      "backgroundImage": "77.jpg",
+      "cutoutImage": "77_cutout.png",
+      "title": {
+        "en": "Golden Years",
+        "mr": "सोनेरी क्षण"
+      },
+      "caption": {
+        "en": "Evening light shining with rich serenity.",
+        "mr": "आयुष्याच्या सायंकाळी चमकणारे शांत आणि तृप्त तेज."
+      },
+      "year": "2025",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-83",
+      "backgroundImage": "78.jpg",
+      "cutoutImage": "78_cutout.png",
+      "title": {
+        "en": "Treasured Wisdom",
+        "mr": "अनुभवाचे धन"
+      },
+      "caption": {
+        "en": "Wisdom gifted freely to those who listened.",
+        "mr": "पुढच्या पिढीला प्रेमाने दिलेली अनुभवाची अनमोल शिदोरी."
+      },
+      "year": "2025",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-84",
+      "backgroundImage": "79.jpg",
+      "cutoutImage": "79_cutout.png",
+      "title": {
+        "en": "The Patient Watcher",
+        "mr": "संयमी नजर"
+      },
+      "caption": {
+        "en": "Observing life with boundless affection.",
+        "mr": "अथांग प्रेमाने आणि मायेने जीवनाकडे पाहणारा."
+      },
+      "year": "2025",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-85",
+      "backgroundImage": "80.jpg",
+      "cutoutImage": "80_cutout.png",
+      "title": {
+        "en": "Graceful Aging",
+        "mr": "सौम्य व्यक्तिमत्त्व"
+      },
+      "caption": {
+        "en": "Aging like fine poetry, deeper with time.",
+        "mr": "काळासोबत अधिकच समृद्ध आणि अर्थपूर्ण होत गेलेले जीवन."
       },
       "year": "2026",
       "textPosition": "left",
       "cutoutPosition": "right",
       "cutoutScale": 1.0,
-      "parallaxIntensity": 1.7
+      "parallaxIntensity": 1.6
     },
     {
-      "id": "slide-13",
-      "backgroundImage": "IMG_20261108_201333508.jpg",
-      "cutoutImage": "IMG_20261108_201333508_cutout.png",
+      "id": "slide-86",
+      "backgroundImage": "81.jpg",
+      "cutoutImage": "81_cutout.png",
       "title": {
-        "en": "Always",
-        "mr": "नेहमीच"
+        "en": "Endless Gratitude",
+        "mr": "अनंत कृतज्ञता"
       },
       "caption": {
-        "en": "Some bonds transcend time.",
-        "mr": "काही नाती काळापलीकडे जातात."
+        "en": "For every sacrifice made in silence.",
+        "mr": "मुक्याने केलेल्या प्रत्येक त्यागासाठी मनापासून कृतज्ञता."
       },
       "year": "2026",
       "textPosition": "right",
       "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-87",
+      "backgroundImage": "82.jpg",
+      "cutoutImage": "82_cutout.png",
+      "title": {
+        "en": "Generations Together",
+        "mr": "पिढ्यांचे नाते"
+      },
+      "caption": {
+        "en": "The bridge connecting yesterday and tomorrow.",
+        "mr": "भूतकाळ आणि भविष्यकाळाला जोडणारा एक भक्कम सेतू."
+      },
+      "year": "2025",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-88",
+      "backgroundImage": "83.jpg",
+      "cutoutImage": "83_cutout.png",
+      "title": {
+        "en": "A Heart of Gold",
+        "mr": "सोन्याचे हृदय"
+      },
+      "caption": {
+        "en": "A heart that gave and never asked.",
+        "mr": "फक्त द्यायला शिकलेले, कधीही न मागितलेले सोन्याचे मन."
+      },
+      "year": "2026",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-89",
+      "backgroundImage": "84.jpg",
+      "cutoutImage": "84_cutout.png",
+      "title": {
+        "en": "Cherished Presence",
+        "mr": "अनमोल सहवास"
+      },
+      "caption": {
+        "en": "Every second in his presence was a blessing.",
+        "mr": "त्यांच्या सहवासातला प्रत्येक क्षण हा ईश्वरी आशीर्वाद होता."
+      },
+      "year": "2026",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-90",
+      "backgroundImage": "85.jpg",
+      "cutoutImage": "85_cutout.png",
+      "title": {
+        "en": "Everlasting Smile",
+        "mr": "अविस्मरणीय हसू"
+      },
+      "caption": {
+        "en": "A smile that stays in our hearts forever.",
+        "mr": "आपल्या हृदयात कायमचे घर करून राहिलेले मनमोहक हास्य."
+      },
+      "year": "2026",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-91",
+      "backgroundImage": "87.jpg",
+      "cutoutImage": "87_cutout.png",
+      "title": {
+        "en": "Footprints of Kindness",
+        "mr": "मायेची पाऊलवाट"
+      },
+      "caption": {
+        "en": "Leaving footprints of love everywhere he went.",
+        "mr": "जिथे गेले तिथे प्रेमाची आणि माणुसकीची पाऊलवाट सोडणारे."
+      },
+      "year": "2026",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-92",
+      "backgroundImage": "88.jpg",
+      "cutoutImage": "88_cutout.png",
+      "title": {
+        "en": "Living Legacy",
+        "mr": "जिवंत वारसा"
+      },
+      "caption": {
+        "en": "His values live on in all of us.",
+        "mr": "त्यांचे विचार आणि संस्कार आपल्या सर्वांच्या रूपात जिवंत आहेत."
+      },
+      "year": "2026",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-93",
+      "backgroundImage": "89.jpg",
+      "cutoutImage": "89_cutout.png",
+      "title": {
+        "en": "Eternal Bond",
+        "mr": "अतूट नाते"
+      },
+      "caption": {
+        "en": "Some bonds transcend the bounds of time.",
+        "mr": "काही नाती काळाच्या आणि अंतराच्या पलीकडे अमर असतात."
+      },
+      "year": "2026",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-94",
+      "backgroundImage": "90.jpg",
+      "cutoutImage": "90_cutout.png",
+      "title": {
+        "en": "Warmth Forever",
+        "mr": "चिरंतन उब"
+      },
+      "caption": {
+        "en": "The warmth of your love will never fade.",
+        "mr": "तुमच्या प्रेमाची उबदार सावली आम्हाला कायम सोबत करेल."
+      },
+      "year": "2026",
+      "textPosition": "right",
+      "cutoutPosition": "left",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-95",
+      "backgroundImage": "91.jpg",
+      "cutoutImage": "91_cutout.png",
+      "title": {
+        "en": "The Unsung Hero",
+        "mr": "खरा हिरो"
+      },
+      "caption": {
+        "en": "Our hero without a cape, our father.",
+        "mr": "कोणताही बडेजाव न मिरवणारा आमचा खरा हिरो—आमचे बाबा."
+      },
+      "year": "2026",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-96",
+      "backgroundImage": "92.jpg",
+      "cutoutImage": "92_cutout.png",
+      "title": {
+        "en": "Guiding Light",
+        "mr": "मार्गदर्शक तारा"
+      },
+      "caption": {
+        "en": "Lighting the way even in the darkest night.",
+        "mr": "काळोखातही आम्हाला योग्य मार्ग दाखवणारा प्रकाश."
+      },
+      "year": "2026",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-97",
+      "backgroundImage": "93.jpg",
+      "cutoutImage": "93_cutout.png",
+      "title": {
+        "en": "In Every Breath",
+        "mr": "प्रत्येक श्वासात"
+      },
+      "caption": {
+        "en": "Remembered with love in every heartbeat.",
+        "mr": "प्रत्येक श्वासात आणि ठोक्यात जाणवणारी तुमची आठवण."
+      },
+      "year": "2026",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-98",
+      "backgroundImage": "94.jpg",
+      "cutoutImage": "94_cutout.png",
+      "title": {
+        "en": "Always & Forever",
+        "mr": "नेहमी आणि कायम"
+      },
+      "caption": {
+        "en": "Held in memory, loved beyond measure.",
+        "mr": "आठवणीत जतन केलेले, मोजमापापलीकडचे निस्वार्थ प्रेम."
+      },
+      "year": "2026",
+      "textPosition": "left",
+      "cutoutPosition": "right",
+      "cutoutScale": 1.0,
+      "parallaxIntensity": 1.6
+    },
+    {
+      "id": "slide-99",
+      "backgroundImage": "95.jpg",
+      "cutoutImage": "95_cutout.png",
+      "title": {
+        "en": "Timeless Grace",
+        "mr": "अमर तेज"
+      },
+      "caption": {
+        "en": "A story written in lines of pure love.",
+        "mr": "केवळ आणि केवळ निस्वार्थ प्रेमाने लिहिलेली एक जीवनगाथा."
+      },
+      "year": "2026",
+      "textPosition": "left",
+      "cutoutPosition": "right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     }
@@ -288,8 +1837,9 @@
       "mr": "प्रेमाने"
     },
     "message": {
-      "en": "Thank you for every moment.",
-      "mr": "प्रत्येक क्षणासाठी आभारी आहोत."
-    }
+      "en": "Thank you for every moment, every smile, and your endless love.",
+      "mr": "प्रत्येक क्षणासाठी, प्रत्येक हास्यासाठी आणि तुमच्या अथांग प्रेमासाठी आम्ही सदैव ऋणी आहोत."
+    },
+    "backgroundImage": "0.jpg"
   }
 }

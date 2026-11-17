@@ -253,7 +253,12 @@ html:not(.js) .pause-btn { display: none; }
   background-position: center;
   will-change: transform;
   z-index: 1;
-  filter: brightness(0.62) contrast(1.05);
+  filter: brightness(0.58) contrast(1.1) saturate(0.88) sepia(0.06);
+}
+
+.slide__bg--blurred {
+  filter: blur(14px) brightness(0.38) saturate(1.15) !important;
+  transform: scale(1.12);
 }
 
 .slide__vignette {
@@ -352,7 +357,9 @@ html:not(.js) .pause-btn { display: none; }
   object-fit: contain;
   object-position: bottom center;
   display: block;
-  filter: drop-shadow(0 20px 45px var(--ink-85));
+  filter: drop-shadow(0 0 1px rgba(201, 169, 110, 0.45))
+          drop-shadow(0 0 16px rgba(201, 169, 110, 0.22))
+          drop-shadow(0 20px 45px var(--ink-85));
   transform-origin: bottom center;
 }
 
@@ -365,6 +372,8 @@ html:not(.js) .pause-btn { display: none; }
   justify-content: center;
 }
 .intro-content {
+  position: relative;
+  z-index: 3;
   text-align: center;
 }
 .intro-name {
@@ -400,6 +409,7 @@ html:not(.js) .pause-btn { display: none; }
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
+  z-index: 3;
 }
 .scroll-hint-line {
   width: 1px;
@@ -421,6 +431,8 @@ html:not(.js) .pause-btn { display: none; }
   justify-content: center;
 }
 .outro-content {
+  position: relative;
+  z-index: 3;
   text-align: center;
 }
 .outro-heading {
