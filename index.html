@@ -117,16 +117,6 @@
     </div>
   </div>
 
-  <!-- Cutout edge feather filter -->
-  <svg width="0" height="0" style="position: absolute; width: 0; height: 0; pointer-events: none; overflow: hidden;" aria-hidden="true">
-    <defs>
-      <filter id="feather-cutout" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
-        <feGaussianBlur in="SourceAlpha" stdDeviation="3.5" result="blurAlpha" />
-        <feComposite in="SourceGraphic" in2="blurAlpha" operator="in" />
-      </filter>
-    </defs>
-  </svg>
-
   <audio id="bgMusic" loop muted></audio>
 
   <script type="module" src="/src/main.js"></script>

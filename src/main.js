@@ -141,28 +141,40 @@ function startAutoScroll() {
 
 function prepareSiteAssets(config) {
   return new Promise((resolve) => {
+    // Preload & GPU-decode Intro slide + first 8 slides before revealing the site
     const urls = ['/images/originals/0.jpg'];
-    const max = Math.min(4, config.slides.length);
-    for (let i = 0; i < max; i++) {
+    const initialBatchCount = Math.min(8, config.slides.length);
+    for (let i = 0; i < initialBatchCount; i++) {
       const s = config.slides[i];
       if (s.backgroundImage) urls.push(`/images/originals/${bgJpg(s.backgroundImage)}`);
       if (s.cutoutImage) urls.push(`/images/cutouts/${cutoutWebp(s.cutoutImage)}`);
     }
 
     let remaining = urls.length + (document.fonts ? 1 : 0);
+    let resolved = false;
+
+    const finish = () => {
+      if (!resolved) {
+        resolved = true;
+        resolve();
+        // Quietly stream all remaining slides in background so they are always warm in cache
+        startBackgroundAssetStreamer(config, initialBatchCount);
+      }
+    };
+
     const done = () => {
       remaining--;
-      if (remaining <= 0) resolve();
+      if (remaining <= 0) finish();
     };
 
     // Safety timeout: never block longer than 3.5s
-    const timer = setTimeout(() => resolve(), 3500);
+    setTimeout(finish, 3500);
 
     urls.forEach((url) => {
       const img = new Image();
       img.onload = img.onerror = () => {
         if (typeof img.decode === 'function') {
-          img.decode().catch(() => {}).finally(() => done());
+          img.decode().catch(() => {}).finally(done);
         } else {
           done();
         }
@@ -171,9 +183,44 @@ function prepareSiteAssets(config) {
     });
 
     if (document.fonts) {
-      document.fonts.ready.then(() => done()).catch(() => done());
+      document.fonts.ready.then(done).catch(done);
     }
   });
+}
+
+function startBackgroundAssetStreamer(config, startIndex = 8) {
+  let currentIndex = startIndex;
+  const total = config.slides.length;
+
+  function streamNext() {
+    if (currentIndex >= total) return;
+    const batch = config.slides.slice(currentIndex, currentIndex + 4);
+    currentIndex += 4;
+
+    const promises = [];
+    batch.forEach(slide => {
+      if (slide.cutoutImage) {
+        const url = `/images/cutouts/${cutoutWebp(slide.cutoutImage)}`;
+        const img = new Image();
+        promises.push(new Promise(res => { img.onload = img.onerror = res; img.src = url; }));
+      }
+      if (slide.backgroundImage) {
+        const url = `/images/originals/${bgJpg(slide.backgroundImage)}`;
+        const img = new Image();
+        promises.push(new Promise(res => { img.onload = img.onerror = res; img.src = url; }));
+      }
+    });
+
+    Promise.all(promises).then(() => {
+      if (typeof requestIdleCallback === 'function') {
+        requestIdleCallback(streamNext, { timeout: 1000 });
+      } else {
+        setTimeout(streamNext, 250);
+      }
+    });
+  }
+
+  streamNext();
 }
 
   // Hold the auto-advance while the visitor is on a control
