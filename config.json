@@ -13,6 +13,12 @@
     "accentColor": "#c9a96e",
     "bgColor": "#080808"
   },
+  "loader": {
+    "status": {
+      "en": "Loading celebration...",
+      "mr": "सुवर्णक्षण लोड होत आहेत..."
+    }
+  },
   "ui": {
     "autoScrollSeconds": 5,
     "showProgressBar": true,

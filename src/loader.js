@@ -20,6 +20,9 @@ export function initLoader(config, slides, onComplete) {
   const stackEl = document.getElementById('loaderStack');
   const nameEl = document.getElementById('loaderName');
   const titleEl = document.querySelector('.loader-title');
+  const preloaderEl = document.getElementById('loaderPre');
+  const progressBar = document.getElementById('loaderProgressBar');
+  const statusText = document.getElementById('loaderStatusText');
 
   // Under reduced motion the story serves itself: no loader, straight in (27)
   if (!loaderEl || !stackEl || REDUCED) {
@@ -38,20 +41,20 @@ export function initLoader(config, slides, onComplete) {
   const preview = pickPreviewSlides(slides, 7);
 
   // Build card elements
-  preview.forEach((slide, i) => {
+  preview.forEach((slide) => {
     const card = document.createElement('div');
     card.className = 'loader-card';
     const img = document.createElement('img');
     img.src = `/images/originals/${bgJpg(slide.backgroundImage)}`;
     img.alt = '';
-    img.loading = i < 3 ? 'eager' : 'lazy';
+    img.loading = 'eager';
     card.appendChild(img);
     stackEl.appendChild(card);
   });
 
   const cards = Array.from(stackEl.querySelectorAll('.loader-card'));
 
-  // ── Initial state: all stacked in centre, invisible ─────────
+  // ── Initial state: cards stacked in centre, invisible ─────────
   gsap.set(cards, {
     opacity: 0,
     scale: 0.75,
@@ -66,42 +69,39 @@ export function initLoader(config, slides, onComplete) {
     gsap.set(titleEl, { opacity: 0, y: 18 });
   }
 
-  const tl = gsap.timeline({ defaults: { ease: 'expo.out' } });
+  // Collect all critical assets needed for flawless entrance
+  const initialSlideAssets = [];
+  for (let i = 0; i < Math.min(3, slides.length); i++) {
+    const s = slides[i];
+    if (s.backgroundImage) initialSlideAssets.push(`/images/originals/${bgJpg(s.backgroundImage)}`);
+    if (s.cutoutImage) initialSlideAssets.push(`/images/cutouts/${cutoutWebp(s.cutoutImage)}`);
+  }
 
-  // ── Step 1: Cards deal in, staggered ───────────────────────
-  tl.to(cards, {
-    opacity: 1,
-    scale: 1,
-    duration: 0.8,
-    stagger: 0.08,
-  });
+  const assetUrls = Array.from(new Set([
+    '/images/originals/0.jpg',
+    ...preview.map(s => `/images/originals/${bgJpg(s.backgroundImage)}`),
+    ...initialSlideAssets
+  ]));
 
-  // ── Step 2: Fan out wide like a hand of dealt photographs ───
-  const total = cards.length;
-  tl.to(cards, {
-    rotationZ: (i) => ((i - (total - 1) / 2) * 6.5), // gentle card fan angle
-    x: (i) => ((i - (total - 1) / 2) * 90),          // spread out 90px each so all photos are clearly visible!
-    y: (i) => Math.pow(Math.abs(i - (total - 1) / 2), 1.4) * 8,
-    scale: (i) => 1.0 - Math.abs(i - (total - 1) / 2) * 0.03,
-    duration: 1.0,
-    stagger: 0.05,
-    ease: 'power3.out',
-  }, '-=0.2');
+  let loadedCount = 0;
+  const totalCount = assetUrls.length + (document.fonts ? 1 : 0);
 
-  // ── Step 3: Name appears ────────────────────────────────────
-  tl.to(titleEl, {
-    opacity: 1,
-    y: 0,
-    duration: 0.8,
-    ease: 'power3.out'
-  }, '-=0.3');
+  function advanceProgress() {
+    loadedCount++;
+    const pct = Math.min(100, Math.round((loadedCount / totalCount) * 100));
+    if (progressBar) {
+      progressBar.style.width = `${pct}%`;
+    }
+  }
 
-  // Click, wheel, or key to enter immediately
+  // Dismiss controller
   let dismissed = false;
+  let tl = null;
+
   const triggerDismiss = () => {
     if (dismissed) return;
     dismissed = true;
-    tl.kill();
+    if (tl) tl.kill();
     window.removeEventListener('wheel', triggerDismiss);
     window.removeEventListener('keydown', triggerDismiss);
     window.removeEventListener('touchstart', triggerDismiss);
@@ -113,55 +113,92 @@ export function initLoader(config, slides, onComplete) {
   window.addEventListener('keydown', triggerDismiss, { once: true });
   window.addEventListener('touchstart', triggerDismiss, { once: true, passive: true });
 
-  // Preload initial slides in background while cards deal
-  const preloadPromise = preloadInitialSlides(slides, 3);
-
-  // ── Step 4: Auto-dismiss when animation finishes AND initial slides are ready
-  tl.call(() => {
-    preloadPromise.then(() => {
-      setTimeout(triggerDismiss, SHOW_DURATION);
-    });
-  });
-}
-
-function preloadInitialSlides(slides, count = 3) {
-  return new Promise((resolve) => {
-    const toLoad = ['/images/originals/0.jpg'];
-    const maxCount = Math.min(count, slides.length);
-
-    for (let i = 0; i < maxCount; i++) {
-      const s = slides[i];
-      if (s.backgroundImage) {
-        toLoad.push(`/images/originals/${bgJpg(s.backgroundImage)}`);
-      }
-      if (s.cutoutImage) {
-        toLoad.push(`/images/cutouts/${cutoutWebp(s.cutoutImage)}`);
-      }
-    }
-
-    let remaining = toLoad.length;
-    if (remaining === 0) {
-      resolve();
-      return;
-    }
-
-    // Safety timeout: never hang more than 2.5s
-    const timer = setTimeout(() => {
-      resolve();
-    }, 2500);
-
-    toLoad.forEach((url) => {
+  // Start preloading images & fonts
+  const assetPromises = assetUrls.map(url => {
+    return new Promise(resolve => {
       const img = new Image();
       img.onload = img.onerror = () => {
-        remaining--;
-        if (remaining <= 0) {
-          clearTimeout(timer);
-          resolve();
-        }
+        advanceProgress();
+        resolve();
       };
       img.src = url;
     });
   });
+
+  if (document.fonts) {
+    assetPromises.push(
+      document.fonts.ready.then(() => advanceProgress()).catch(() => advanceProgress())
+    );
+  }
+
+  // Safety timer (4.5s max wait)
+  let safetyFired = false;
+  const safetyTimer = setTimeout(() => {
+    safetyFired = true;
+    startCelebration();
+  }, 4500);
+
+  Promise.all(assetPromises).then(() => {
+    if (!safetyFired) {
+      clearTimeout(safetyTimer);
+      startCelebration();
+    }
+  });
+
+  function startCelebration() {
+    if (dismissed) return;
+
+    if (progressBar) progressBar.style.width = '100%';
+
+    // Smoothly fade out the preloader ring and bar
+    if (preloaderEl) {
+      gsap.to(preloaderEl, {
+        opacity: 0,
+        scale: 0.92,
+        duration: 0.5,
+        ease: 'power2.inOut',
+        onComplete: () => {
+          preloaderEl.style.display = 'none';
+        }
+      });
+    }
+
+    // ── Build & run cards fan timeline ──
+    tl = gsap.timeline({ defaults: { ease: 'expo.out' } });
+
+    // Step 1: Cards deal in, staggered
+    tl.to(cards, {
+      opacity: 1,
+      scale: 1,
+      duration: 0.8,
+      stagger: 0.08,
+    });
+
+    // Step 2: Fan out wide like a hand of dealt photographs
+    const total = cards.length;
+    tl.to(cards, {
+      rotationZ: (i) => ((i - (total - 1) / 2) * 6.5),
+      x: (i) => ((i - (total - 1) / 2) * 90),
+      y: (i) => Math.pow(Math.abs(i - (total - 1) / 2), 1.4) * 8,
+      scale: (i) => 1.0 - Math.abs(i - (total - 1) / 2) * 0.03,
+      duration: 1.0,
+      stagger: 0.05,
+      ease: 'power3.out',
+    }, '-=0.2');
+
+    // Step 3: Name appears
+    tl.to(titleEl, {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: 'power3.out'
+    }, '-=0.3');
+
+    // Step 4: Auto-dismiss after display duration
+    tl.call(() => {
+      setTimeout(triggerDismiss, SHOW_DURATION);
+    });
+  }
 }
 
 function dismissLoader(cards, loaderEl, onComplete) {
