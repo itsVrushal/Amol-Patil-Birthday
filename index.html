@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="mr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>A tribute to Amol Patil</title>
-  <meta name="description" content="A tribute to Amol Patil. A life full of love, told in photographs, in English and Marathi." />
+  <title>Happy 50th Birthday Amol Patil | 50 Golden Years</title>
+  <meta name="description" content="Celebrating 50 Golden Years of Amol Patil. A journey of love and life told in photographs, in Marathi and English." />
   <link rel="icon" href="data:," />
   <script>document.documentElement.classList.add('js');</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Serif+Devanagari:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Serif+Devanagari:wght@300;400;500;600;700&family=Rozha+One&family=Tiro+Devanagari+Marathi:ital@0;1&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./src/style.css" />
 </head>
 <body>
@@ -20,8 +20,7 @@
   <div id="loader">
     <div class="loader-stack" id="loaderStack"></div>
     <div class="loader-title">
-      <span class="loader-name" id="loaderName"></span>
-      <span class="loader-enter">click or scroll to explore</span>
+      <span class="loader-name" id="loaderName" data-i18n="site.title"></span>
     </div>
   </div>
 
@@ -29,9 +28,9 @@
        LANGUAGE TOGGLE
   ═══════════════════════════════════════ -->
   <div class="lang-toggle" id="langToggle">
-    <button class="lang-btn active" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="en">EN</button>
     <span class="lang-sep">|</span>
-    <button class="lang-btn" data-lang="mr">मर</button>
+    <button class="lang-btn active" data-lang="mr">मर</button>
   </div>
 
   <!-- ═══════════════════════════════════════
@@ -70,10 +69,10 @@
           <div class="slide__vignette"></div>
           <div class="intro-content">
             <h1 class="intro-name">
-              <span class="intro-dedication" data-i18n="intro.heading">A tribute to</span>
-              <span class="intro-name-line" data-i18n="intro.name">Amol Patil</span>
+              <span class="intro-dedication" data-i18n="intro.heading">५० व्या वाढदिवसाच्या निमित्ताने —</span>
+              <span class="intro-name-line" data-i18n="intro.name">अमोल पाटील</span>
             </h1>
-            <p class="intro-tagline" data-i18n="intro.tagline">Scroll to explore his story</p>
+            <p class="intro-tagline" data-i18n="intro.tagline">५० वर्षांचा हा सुंदर जीवनप्रवास अनुभवण्यासाठी स्क्रोल करा →</p>
           </div>
           <div class="scroll-hint">
             <span class="scroll-hint-line"></span>
@@ -88,28 +87,17 @@
           <div class="slide__bg slide__bg--blurred" style="background-image: url('/images/originals/0.jpg')"></div>
           <div class="slide__vignette"></div>
           <div class="outro-content">
-            <p class="outro-heading" data-i18n="outro.heading">With Love</p>
-            <p class="outro-message" data-i18n="outro.message">Thank you for every moment.</p>
+            <p class="outro-heading" data-i18n="outro.heading">५० व्या वाढदिवसाच्या हार्दिक शुभेच्छा!</p>
+            <p class="outro-message" data-i18n="outro.message">तुम्हाला उत्तम आरोग्य, दीर्घायुष्य आणि सदैव सुख-समाधान लाभो हीच प्रार्थना.</p>
           </div>
         </section>
 
       </div>
     </div>
 
-    <!-- DOTS NAVIGATION -->
-    <nav class="dots-nav" id="dotsNav" role="navigation" aria-label="Slide navigation"></nav>
 
-    <!-- PAUSE CONTROL + SLIDE COUNTER -->
+    <!-- SLIDE COUNTER -->
     <div class="bottom-right">
-      <button class="pause-btn" id="pauseToggle" type="button" aria-pressed="false" aria-label="Pause auto-advance" title="Pause auto-advance">
-        <svg class="icon-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-          <line x1="9" y1="6" x2="9" y2="18"/>
-          <line x1="15" y1="6" x2="15" y2="18"/>
-        </svg>
-        <svg class="icon-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-          <polygon points="8 5 19 12 8 19 8 5"/>
-        </svg>
-      </button>
       <div class="slide-counter" id="slideCounter">
         <span class="counter-current">01</span>
         <span class="counter-sep"> / </span>
@@ -118,7 +106,17 @@
     </div>
   </div>
 
-  <audio id="bgMusic" loop></audio>
+  <!-- Cutout edge feather filter -->
+  <svg width="0" height="0" style="position: absolute; width: 0; height: 0; pointer-events: none; overflow: hidden;" aria-hidden="true">
+    <defs>
+      <filter id="feather-cutout" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
+        <feGaussianBlur in="SourceAlpha" stdDeviation="3.5" result="blurAlpha" />
+        <feComposite in="SourceGraphic" in2="blurAlpha" operator="in" />
+      </filter>
+    </defs>
+  </svg>
+
+  <audio id="bgMusic" loop muted></audio>
 
   <script type="module" src="/src/main.js"></script>
 </body>

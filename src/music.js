@@ -4,7 +4,7 @@
  */
 
 let audio    = null;
-let isMuted  = false;
+let isMuted  = true;
 let config   = null;
 
 export function initMusic(cfg) {

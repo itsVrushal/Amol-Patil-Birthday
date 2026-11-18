@@ -26,10 +26,7 @@ initI18n(config);
 buildSlides(config);
 renderAll();
 
-// ── 4. Build dots navigation ──────────────────────────────────
-buildDots(config);
-
-// ── 5. Init music ─────────────────────────────────────────────
+// ── 4. Init music ─────────────────────────────────────────────
 initMusic(config);
 setupMusicToggle();
 
@@ -41,14 +38,32 @@ setupMusicToggle();
 // ── 6. Custom cursor ──────────────────────────────────────────
 initCursor();
 
-// ── 7. Language toggle ────────────────────────────────────────
+// ── 7. Language toggle & keyboard shortcut (Tab / L) ──────────
+const initialLang = getLang();
 document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.classList.toggle('active', btn.dataset.lang === initialLang);
   btn.addEventListener('click', () => {
     const lang = btn.dataset.lang;
     document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     switchLang(lang);
   });
+});
+
+export function toggleLanguage() {
+  const nextLang = getLang() === 'mr' ? 'en' : 'mr';
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.lang === nextLang);
+  });
+  switchLang(nextLang);
+}
+
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Tab' || e.key === 'l' || e.key === 'L') {
+    e.preventDefault();
+    toggleLanguage();
+    tryPlay();
+  }
 });
 
 // ── 8. Run opening loader, then boot site ─────────────────────
@@ -100,42 +115,19 @@ function bootSite() {
   // ── Init parallax engine ─────────────────────────────────────
   initParallax(lenis, config.slides.length);
 
-  // ── Dots click → scroll to slide ────────────────────────────
-  document.querySelectorAll('.dot').forEach((dot, i) => {
-    dot.addEventListener('click', () => {
-      goToSlide(i);
-      tryPlay();
-      resetAutoScroll();
-    });
-  });
-
-  const totalDots = document.querySelectorAll('.dot').length;
+  const totalSlides = document.querySelectorAll('#slidesTrack > .slide').length;
 
   // ── Auto-scroll after 10s of inactivity ──────────────────────
   const autoScrollDelay = (config.ui?.autoScrollSeconds || 10) * 1000;
   let autoScrollTimer = null;
-  let autoPaused = false;
-  const pauseBtn = document.getElementById('pauseToggle');
-
-  // The visible pause control (18)
-  if (pauseBtn && !REDUCED) {
-    pauseBtn.addEventListener('click', () => {
-      autoPaused = !autoPaused;
-      pauseBtn.classList.toggle('paused', autoPaused);
-      pauseBtn.setAttribute('aria-pressed', String(autoPaused));
-      pauseBtn.setAttribute('aria-label', autoPaused ? 'Resume auto-advance' : 'Pause auto-advance');
-      if (autoPaused) clearTimeout(autoScrollTimer);
-      else resetAutoScroll();
-    });
-  }
 
   function resetAutoScroll() {
     clearTimeout(autoScrollTimer);
-    if (autoPaused || REDUCED) return;
+    if (REDUCED) return;
     autoScrollTimer = setTimeout(() => {
       const cur = getActiveSlideIndex();
       // If reached the end, loop back to the first photo slide (index 1)
-      const next = (cur + 1) >= totalDots ? 1 : (cur + 1);
+      const next = (cur + 1) >= totalSlides ? 1 : (cur + 1);
       goToSlide(next);
       tryPlay();
       resetAutoScroll();
@@ -144,19 +136,19 @@ function bootSite() {
 
   resetAutoScroll();
 
-  // Hold the auto-advance while the visitor is on a control (18)
+  // Hold the auto-advance while the visitor is on a control
   const holdAutoScroll = () => clearTimeout(autoScrollTimer);
-  [document.getElementById('musicPlayer'), document.getElementById('langToggle'), document.getElementById('dotsNav'), pauseBtn]
+  [document.getElementById('musicPlayer'), document.getElementById('langToggle')]
     .filter(Boolean)
     .forEach((el) => {
       el.addEventListener('mouseenter', holdAutoScroll);
-      el.addEventListener('mouseleave', () => { if (!autoPaused) resetAutoScroll(); });
+      el.addEventListener('mouseleave', resetAutoScroll);
     });
   document.addEventListener('focusin', holdAutoScroll);
-  document.addEventListener('focusout', () => { if (!autoPaused) resetAutoScroll(); });
+  document.addEventListener('focusout', resetAutoScroll);
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) holdAutoScroll();
-    else if (!autoPaused) resetAutoScroll();
+    else resetAutoScroll();
   });
 
   // Reset timer on any user interaction
@@ -182,7 +174,7 @@ function bootSite() {
     if (Math.abs(diffX) > 60 && Math.abs(diffX) > Math.abs(diffY)) {
       const cur = getActiveSlideIndex();
       if (diffX > 0) {
-        goToSlide(Math.min(cur + 1, totalDots - 1));
+        goToSlide(Math.min(cur + 1, totalSlides - 1));
       } else {
         goToSlide(Math.max(cur - 1, 0));
       }
@@ -194,7 +186,7 @@ function bootSite() {
   document.addEventListener('keydown', (e) => {
     const cur = getActiveSlideIndex();
     if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-      const next = Math.min(cur + 1, totalDots - 1);
+      const next = Math.min(cur + 1, totalSlides - 1);
       goToSlide(next);
       tryPlay();
       resetAutoScroll();
@@ -213,22 +205,6 @@ function bootSite() {
 
 function hideScrollHint() {
   gsap.to('.scroll-hint', { opacity: 0, duration: 0.5 });
-}
-
-// ════════════════════════════════════════════════════════════════
-function buildDots(config) {
-  const nav = document.getElementById('dotsNav');
-  if (!nav) return;
-
-  // intro + photo slides + outro
-  const total = config.slides.length + 2;
-
-  for (let i = 0; i < total; i++) {
-    const btn = document.createElement('button');
-    btn.className = 'dot' + (i === 0 ? ' active' : '');
-    btn.setAttribute('aria-label', `Go to slide ${i + 1}`);
-    nav.appendChild(btn);
-  }
 }
 
 // ════════════════════════════════════════════════════════════════
@@ -262,7 +238,7 @@ function initCursor() {
   animateRing();
 
   // Cursor grows on interactive elements (transform only, 10a)
-  document.querySelectorAll('button, a, .dot').forEach(el => {
+  document.querySelectorAll('button, a').forEach(el => {
     el.addEventListener('mouseenter', () => {
       dot.classList.add('is-grow');
       ring.classList.add('is-grow');

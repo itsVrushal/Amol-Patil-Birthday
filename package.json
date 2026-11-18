@@ -1,5 +1,5 @@
 {
-  "name": "father-tribute-site",
+  "name": "amol-patil-50th-birthday",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "puppeteer-core": "^25.18.1",
     "rollup": "^3.29.4",
     "vite": "^4.5.5"
   },

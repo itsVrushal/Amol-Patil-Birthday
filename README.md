@@ -1,6 +1,6 @@
-# 🎞️ Father's Tribute Website
+# 🎂 Amol Patil — 50th Birthday Celebration Website
 
-A beautiful, minimal tribute site with **horizontal parallax scrolling** and **3-layer depth effect**.
+A beautiful, minimal celebration site with **horizontal parallax scrolling** and **3-layer depth effect**.
 
 ---
 

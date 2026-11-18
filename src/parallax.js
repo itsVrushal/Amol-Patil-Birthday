@@ -20,31 +20,48 @@ const TEXT_OFFSET  = 80;     // px the text leads ahead of scroll
 const CUTOUT_SPEED = 1.25;   // how much the cutout races ahead
 
 let lenis = null;
+let mainTrackAnim = null;
+let registeredTotalSlides = 0;
+
+function getTrackMetrics() {
+  const track = document.getElementById('slidesTrack');
+  const container = document.getElementById('scrollContainer') || document.documentElement;
+  const viewW = container.clientWidth || window.innerWidth;
+  const totalW = track ? track.scrollWidth : (viewW * 101);
+  const scrollDist = Math.max(1, totalW - viewW);
+  return { track, container, viewW, totalW, scrollDist };
+}
 
 export function initParallax(lenisInstance, totalSlides) {
   lenis = lenisInstance;
-  const track     = document.getElementById('slidesTrack');
-  const totalW    = track.scrollWidth;
-  const viewW     = window.innerWidth;
-  const scrollDist = totalW - viewW;
+  registeredTotalSlides = totalSlides;
+  const { track } = getTrackMetrics();
+  if (!track) return;
 
   // ── 1. Pin the scroll container, translate on scroll ────────
   const trackAnim = gsap.to(track, {
     id: 'track-anim',
-    x: () => -(scrollDist),
+    x: () => {
+      const { scrollDist } = getTrackMetrics();
+      return -scrollDist;
+    },
     ease: 'none',
     scrollTrigger: {
       id: 'main-scroll',
       trigger: '#scrollContainer',
       start: 'top top',
-      end:   () => `+=${scrollDist}`,
-      scrub: 1.2,
+      end:   () => {
+        const { scrollDist } = getTrackMetrics();
+        return `+=${scrollDist}`;
+      },
+      scrub: true,
       pin:   true,
       anticipatePin: 1,
       invalidateOnRefresh: true,
       onUpdate: (self) => updateParallaxLayers(self.progress, totalSlides),
     }
   });
+  mainTrackAnim = trackAnim;
 
   // ── 2. Slide-in animations for text elements ─────────────────
   document.querySelectorAll('.slide--photo').forEach((slide, i) => {
@@ -86,17 +103,21 @@ export function initParallax(lenisInstance, totalSlides) {
   window.addEventListener('resize', () => ScrollTrigger.refresh());
   setTimeout(() => ScrollTrigger.refresh(), 200);
   setTimeout(() => ScrollTrigger.refresh(), 800);
+
+  // Start drift if initialized on a photo slide
+  if (currentActiveIndex > 0) {
+    triggerCutoutDrift(currentActiveIndex, 1);
+  }
 }
 
 function updateParallaxLayers(progress, totalSlides) {
-  const track  = document.getElementById('slidesTrack');
-  const totalW = track.scrollWidth;
-  const viewW  = window.innerWidth;
+  const { track, scrollDist } = getTrackMetrics();
+  if (!track) return;
 
   // Current scroll amount in pixels
-  const scrolledPx = progress * (totalW - viewW);
+  const scrolledPx = progress * scrollDist;
 
-  document.querySelectorAll('.slide--photo').forEach((slide, i) => {
+  document.querySelectorAll('.slide--photo').forEach((slide) => {
     const slideLeft = slide.offsetLeft;
     // How far this slide is from the viewport centre
     const relPos    = slideLeft - scrolledPx;
@@ -108,8 +129,10 @@ function updateParallaxLayers(progress, totalSlides) {
 
     // Background — moves slower (lags behind in the distance)
     if (bgEl) {
-      const bgX = -(relPos * 0.18 * intensity);
-      bgEl.style.transform = `translateX(${bgX}px)`;
+      const offsetX = parseCssUnit(slide.dataset.bgOffsetX, window.innerWidth);
+      const offsetY = parseCssUnit(slide.dataset.bgOffsetY, window.innerHeight);
+      const bgX = -(relPos * 0.18 * intensity) + offsetX;
+      bgEl.style.transform = `translate(${bgX}px, ${offsetY}px)`;
     }
 
     // Text — mid-ground floating movement
@@ -130,23 +153,89 @@ function updateParallaxLayers(progress, totalSlides) {
 }
 
 let currentActiveIndex = 0;
+let isNavigating = false;
+let navTimeout = null;
 
 export function getActiveSlideIndex() {
   return currentActiveIndex;
 }
 
-function updateNav(progress, totalSlides) {
-  // Total slides includes intro + photo slides + outro
-  const dots    = document.querySelectorAll('.dot');
-  const track   = document.getElementById('slidesTrack');
-  const totalW  = track.scrollWidth;
-  const viewW   = window.innerWidth;
-  const slideW  = viewW;
-  const scrolled = progress * (totalW - viewW);
-  const activeIdx = Math.max(0, Math.min(dots.length - 1, Math.round(scrolled / slideW)));
-  currentActiveIndex = activeIdx;
+export function triggerCutoutDrift(activeIdx, dir = 1) {
+  const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (REDUCED) return;
 
-  dots.forEach((d, i) => d.classList.toggle('active', i === activeIdx));
+  const slides = document.querySelectorAll('#slidesTrack > .slide');
+  const targetSlide = slides[activeIdx];
+
+  // Gracefully settle all other slide cutouts so only the active slide is actively drifting
+  document.querySelectorAll('.slide__cutout-inner').forEach(inner => {
+    if (!targetSlide || !targetSlide.contains(inner)) {
+      gsap.killTweensOf(inner);
+      gsap.to(inner, { x: 0, duration: 0.8, ease: 'power2.out', overwrite: 'auto' });
+    }
+  });
+
+  if (!targetSlide || !targetSlide.classList.contains('slide--photo')) return;
+
+  const cutoutInner = targetSlide.querySelector('.slide__cutout-inner');
+  if (!cutoutInner) return;
+
+  gsap.killTweensOf(cutoutInner);
+
+  // Subtle drift distance (10px - 18px) based on viewport width
+  const driftDist = Math.min(18, Math.max(10, window.innerWidth * 0.012));
+  
+  // Forward motion (slides enter from right): cutout glides subtly to the left
+  // Backward motion (slides enter from left): cutout glides subtly to the right
+  const startX  = dir >= 0 ? driftDist : -driftDist;
+  const targetX = dir >= 0 ? -driftDist : driftDist;
+
+  // Set initial subtle offset in motion direction
+  gsap.set(cutoutInner, { x: startX });
+
+  // Keep moving horizontally very subtly throughout the slide presentation
+  gsap.to(cutoutInner, {
+    x: targetX,
+    duration: 8.5,
+    ease: 'power1.out',
+    overwrite: 'auto',
+    onComplete: () => {
+      // If remaining on the slide longer, continue moving in a subtle gentle sway
+      const swayTarget = targetX + (dir >= 0 ? (driftDist * 0.5) : -(driftDist * 0.5));
+      gsap.to(cutoutInner, {
+        x: swayTarget,
+        duration: 5.5,
+        ease: 'sine.inOut',
+        yoyo: true,
+        repeat: -1,
+      });
+    }
+  });
+}
+
+function updateNav(progress, totalSlides) {
+  const slides  = document.querySelectorAll('#slidesTrack > .slide');
+  const { scrollDist } = getTrackMetrics();
+  const scrolled = progress * scrollDist;
+
+  // Find the slide whose offsetLeft is closest to scrolled
+  let activeIdx = 0;
+  let minDiff = Infinity;
+  slides.forEach((slide, i) => {
+    const diff = Math.abs(slide.offsetLeft - scrolled);
+    if (diff < minDiff) {
+      minDiff = diff;
+      activeIdx = i;
+    }
+  });
+  
+  if (!isNavigating && activeIdx !== currentActiveIndex) {
+    const dir = activeIdx > currentActiveIndex ? 1 : -1;
+    currentActiveIndex = activeIdx;
+    triggerCutoutDrift(activeIdx, dir);
+  } else if (!isNavigating) {
+    currentActiveIndex = activeIdx;
+  }
 
   // Counter (only counts photo slides, skip intro/outro)
   const photoIdx = activeIdx - 1; // subtract intro
@@ -162,8 +251,63 @@ function updateNav(progress, totalSlides) {
   }
 }
 
-export function goToSlide(index) {
-  const viewW = window.innerWidth;
-  const target = index * viewW;
-  lenis?.scrollTo(target, { duration: 1.4, easing: (t) => 1 - Math.pow(1 - t, 4) });
+export function goToSlide(index, immediate = false) {
+  const slides = document.querySelectorAll('#slidesTrack > .slide');
+  const total = slides.length;
+  if (total === 0) return;
+
+  const safeIdx = Math.max(0, Math.min(total - 1, index));
+  const targetSlide = slides[safeIdx];
+  if (!targetSlide) return;
+
+  const dir = safeIdx >= currentActiveIndex ? 1 : -1;
+  currentActiveIndex = safeIdx;
+  isNavigating = true;
+  clearTimeout(navTimeout);
+  navTimeout = setTimeout(() => { isNavigating = false; }, immediate ? 50 : 1600);
+
+  triggerCutoutDrift(safeIdx, dir);
+
+  // Exact target in pixels matching this slide's offsetLeft
+  const target = targetSlide.offsetLeft;
+  const { scrollDist } = getTrackMetrics();
+  const progress = Math.min(1, Math.max(0, target / (scrollDist || 1)));
+
+  if (immediate) {
+    lenis?.scrollTo(target, { immediate: true });
+    if (mainTrackAnim) {
+      mainTrackAnim.progress(progress);
+    }
+    updateParallaxLayers(progress, registeredTotalSlides);
+    
+    // Ensure active slide text is fully visible immediately
+    targetSlide.querySelectorAll('.fade-in-up').forEach(el => {
+      gsap.set(el, { opacity: 1, y: 0 });
+    });
+    isNavigating = false;
+  } else {
+    lenis?.scrollTo(target, {
+      duration: 1.4,
+      easing: (t) => 1 - Math.pow(1 - t, 4),
+      onComplete: () => {
+        isNavigating = false;
+        clearTimeout(navTimeout);
+      }
+    });
+  }
+}
+
+function parseCssUnit(val, dimension) {
+  if (typeof val === 'number') return val;
+  if (!val) return 0;
+  const s = String(val).trim();
+  if (s.endsWith('vw')) return (parseFloat(s) / 100) * window.innerWidth;
+  if (s.endsWith('vh')) return (parseFloat(s) / 100) * window.innerHeight;
+  if (s.endsWith('%')) return (parseFloat(s) / 100) * dimension;
+  if (s.endsWith('px')) return parseFloat(s);
+  return parseFloat(s) || 0;
+}
+
+if (typeof window !== 'undefined') {
+  window.goToSlide = goToSlide;
 }

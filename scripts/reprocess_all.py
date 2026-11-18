@@ -209,15 +209,15 @@ STORY_DATA = [
     {"title": {"en": "A Heart of Gold", "mr": "सोन्याचे हृदय"}, "caption": {"en": "A heart that gave and never asked.", "mr": "फक्त द्यायला शिकलेले, कधीही न मागितलेले सोन्याचे मन."}},
     {"title": {"en": "Cherished Presence", "mr": "अनमोल सहवास"}, "caption": {"en": "Every second in his presence was a blessing.", "mr": "त्यांच्या सहवासातला प्रत्येक क्षण हा ईश्वरी आशीर्वाद होता."}},
     {"title": {"en": "Everlasting Smile", "mr": "अविस्मरणीय हसू"}, "caption": {"en": "A smile that stays in our hearts forever.", "mr": "आपल्या हृदयात कायमचे घर करून राहिलेले मनमोहक हास्य."}},
-    {"title": {"en": "Footprints of Kindness", "mr": "मायेची पाऊलवाट"}, "caption": {"en": "Leaving footprints of love everywhere he went.", "mr": "जिथे गेले तिथे प्रेमाची आणि माणुसकीची पाऊलवाट सोडणारे."}},
-    {"title": {"en": "Living Legacy", "mr": "जिवंत वारसा"}, "caption": {"en": "His values live on in all of us.", "mr": "त्यांचे विचार आणि संस्कार आपल्या सर्वांच्या रूपात जिवंत आहेत."}},
-    {"title": {"en": "Eternal Bond", "mr": "अतूट नाते"}, "caption": {"en": "Some bonds transcend the bounds of time.", "mr": "काही नाती काळाच्या आणि अंतराच्या पलीकडे अमर असतात."}},
-    {"title": {"en": "Warmth Forever", "mr": "चिरंतन उब"}, "caption": {"en": "The warmth of your love will never fade.", "mr": "तुमच्या प्रेमाची उबदार सावली आम्हाला कायम सोबत करेल."}},
+    {"title": {"en": "Footprints of Kindness", "mr": "मायेची पाऊलवाट"}, "caption": {"en": "Leaving footprints of kindness and joy everywhere he goes.", "mr": "जिथे जातात तिथे प्रेमाची आणि आनंदाची पाऊलवाट निर्माण करणारे."}},
+    {"title": {"en": "50 Years of Wisdom", "mr": "५० वर्षांची समृद्ध वाटचाल"}, "caption": {"en": "Your values and guidance inspire us each and every day.", "mr": "तुमचे विचार आणि संस्कार आम्हा सर्वांना प्रत्येक क्षणी नवी प्रेरणा देतात."}},
+    {"title": {"en": "Unbreakable Bond", "mr": "अतूट नाते"}, "caption": {"en": "A lifelong bond of love and respect that grows stronger every day.", "mr": "काळासोबत अधिकच घट्ट आणि समृद्ध होत जाणारे प्रेमाचे अतूट नाते."}},
+    {"title": {"en": "Everlasting Warmth", "mr": "चिरंतन उब"}, "caption": {"en": "The warmth of your love continues to guide and protect our family.", "mr": "तुमच्या प्रेमाची आणि आशीर्वादाची सावली आमच्या पाठीशी सदैव खंबीर उभी आहे."}},
     {"title": {"en": "The Unsung Hero", "mr": "खरा हिरो"}, "caption": {"en": "Our hero without a cape, our father.", "mr": "कोणताही बडेजाव न मिरवणारा आमचा खरा हिरो—आमचे बाबा."}},
     {"title": {"en": "Guiding Light", "mr": "मार्गदर्शक तारा"}, "caption": {"en": "Lighting the way even in the darkest night.", "mr": "काळोखातही आम्हाला योग्य मार्ग दाखवणारा प्रकाश."}},
-    {"title": {"en": "In Every Breath", "mr": "प्रत्येक श्वासात"}, "caption": {"en": "Remembered with love in every heartbeat.", "mr": "प्रत्येक श्वासात आणि ठोक्यात जाणवणारी तुमची आठवण."}},
-    {"title": {"en": "Always & Forever", "mr": "नेहमी आणि कायम"}, "caption": {"en": "Held in memory, loved beyond measure.", "mr": "आठवणीत जतन केलेले, मोजमापापलीकडचे निस्वार्थ प्रेम."}},
-    {"title": {"en": "Timeless Grace", "mr": "अमर तेज"}, "caption": {"en": "A story written in lines of pure love.", "mr": "केवळ आणि केवळ निस्वार्थ प्रेमाने लिहिलेली एक जीवनगाथा."}}
+    {"title": {"en": "Golden Milestone", "mr": "सुवर्ण महोत्सवी क्षण"}, "caption": {"en": "Celebrating 50 magnificent years filled with courage, love, and laughter.", "mr": "प्रेम, त्याग आणि हास्याने परिपूर्ण ५० सुवर्ण वर्षांचा गौरवशाली सोहळा!"}},
+    {"title": {"en": "Cheers to 50!", "mr": "५० वर्षांचा गौरव"}, "caption": {"en": "Honoring fifty glorious years and looking forward to many more joyful decades together!", "mr": "५० वर्षांच्या यशस्वी जीवनप्रवासाचा आनंदोत्सव आणि पुढील सुखद प्रवासासाठी मनःपूर्वक शुभेच्छा!"}},
+    {"title": {"en": "The Golden Journey Continues", "mr": "सुवर्ण जीवनगाथा"}, "caption": {"en": "50 wonderful chapters celebrated, and the happiest years still ahead!", "mr": "५० वर्षांची ही सुंदर जीवनगाथा साजरी करताना, पुढील प्रत्येक वर्षासाठी अनंत शुभेच्छा!"}}
 ]
 
 def generate_slide_config(img_filename, index, center_x, exif_year):
@@ -328,9 +328,9 @@ def main():
             "showScrollHint": True
         },
         "intro": {
-            "heading": {"en": "A tribute to", "mr": "एक श्रद्धांजली"},
+            "heading": {"en": "Celebrating 50 Years of", "mr": "५० व्या वाढदिवसाच्या निमित्ताने —"},
             "name": {"en": "Amol Patil", "mr": "अमोल पाटील"},
-            "tagline": {"en": "Scroll to explore his story →", "mr": "त्याची कहाणी जाणून घेण्यासाठी स्क्रोल करा →"},
+            "tagline": {"en": "Scroll to explore 50 golden years →", "mr": "५० वर्षांचा हा सुंदर जीवनप्रवास अनुभवण्यासाठी स्क्रोल करा →"},
             "backgroundImage": "0.jpg"
         },
         "music": existing_cfg.get("music", {

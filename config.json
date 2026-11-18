@@ -5,8 +5,8 @@
       "mr": "अमोल पाटील"
     },
     "subtitle": {
-      "en": "A Life Full of Love",
-      "mr": "प्रेमाने भरलेलं आयुष्य"
+      "en": "Celebrating 50 Golden Years",
+      "mr": "५० सुवर्ण वर्षांचा गौरवशाली प्रवास"
     },
     "defaultLanguage": "en",
     "font": "Cormorant Garamond",
@@ -14,29 +14,29 @@
     "bgColor": "#080808"
   },
   "ui": {
-    "autoScrollSeconds": 10,
+    "autoScrollSeconds": 5,
     "showProgressBar": true,
     "showSlideCounter": true,
     "showScrollHint": true
   },
   "intro": {
     "heading": {
-      "en": "A tribute to",
-      "mr": "एक श्रद्धांजली"
+      "en": "Celebrating 50 Years of",
+      "mr": "५० व्या वाढदिवसाच्या निमित्ताने —"
     },
     "name": {
       "en": "Amol Patil",
       "mr": "अमोल पाटील"
     },
     "tagline": {
-      "en": "Scroll to explore his story →",
-      "mr": "त्याची कहाणी जाणून घेण्यासाठी स्क्रोल करा →"
+      "en": "Scroll to explore 50 golden years →",
+      "mr": "५० वर्षांचा हा सुंदर जीवनप्रवास अनुभवण्यासाठी स्क्रोल करा →"
     },
     "backgroundImage": "0.jpg"
   },
   "music": {
     "enabled": true,
-    "defaultMuted": false,
+    "defaultMuted": true,
     "loop": true,
     "tracks": [
       {
@@ -61,8 +61,8 @@
         "mr": "प्रत्येक महान प्रवासाची सुरुवात एका शांत आणि साध्या पहाटेने होते."
       },
       "year": "2016",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -79,9 +79,9 @@
         "mr": "डोळ्यांत स्वप्ने आणि जगाला सामोरे जाण्याची जिद्द."
       },
       "year": "2008",
-      "textPosition": "right",
-      "cutoutPosition": "left",
-      "cutoutScale": 1.0,
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
+      "cutoutScale": 0.7,
       "parallaxIntensity": 1.6
     },
     {
@@ -97,9 +97,9 @@
         "mr": "मजबूत मुळे वादळातही पाय घट्ट रोवून उभी राहतात."
       },
       "year": "2010",
-      "textPosition": "left",
-      "cutoutPosition": "right",
-      "cutoutScale": 1.0,
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
+      "cutoutScale": 0.7,
       "parallaxIntensity": 1.6
     },
     {
@@ -115,8 +115,8 @@
         "mr": "जेव्हा छोट्या छोट्या गोष्टींतच खरा आनंद सामावलेला होता."
       },
       "year": "2016",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -133,8 +133,8 @@
         "mr": "शांत मन नेहमी शब्दांपलीकडचे सत्य जाणते."
       },
       "year": "2016",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -151,9 +151,9 @@
         "mr": "धैर्य हे दाखवण्याचे नसते, ते प्रत्येक पावलात जाणवते."
       },
       "year": "2010",
-      "textPosition": "right",
-      "cutoutPosition": "left",
-      "cutoutScale": 1.0,
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
+      "cutoutScale": 0.7,
       "parallaxIntensity": 1.6
     },
     {
@@ -169,8 +169,8 @@
         "mr": "काळाच्या ओघात जपून ठेवलेल्या अनमोल आठवणी."
       },
       "year": "2010",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -187,8 +187,8 @@
         "mr": "संयम आणि प्रतिष्ठा हीच खरी श्रीमंती असते."
       },
       "year": "2010",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -205,8 +205,8 @@
         "mr": "मूल्ये आणि तत्वांवर रचलेला आयुष्याचा भक्कम पाया."
       },
       "year": "2011",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -223,8 +223,8 @@
         "mr": "जिथून सगळं सुरू झालं, त्या क्षणांची एक ओझरती झलक."
       },
       "year": "2020",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -241,8 +241,8 @@
         "mr": "प्रत्येक क्षणी निष्ठेने आणि चिकाटीने केलेले कार्य."
       },
       "year": "2021",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -259,8 +259,8 @@
         "mr": "ज्या हातांनी घराला आधार दिला आणि कुटुंबाला सावरले."
       },
       "year": "2022",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -277,8 +277,8 @@
         "mr": "दैनंदिन जबाबदाऱ्यांमध्येही जपलेली स्पष्ट दृष्टी."
       },
       "year": "2022",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -292,11 +292,11 @@
       },
       "caption": {
         "en": "Integrity that never needed a contract.",
-        "mr": "ज्याचे बोलणेच विश्वासाचे सर्वात मोठे प्रमाण होते."
+        "mr": "ज्यांचे बोलणेच विश्वासाचे सर्वात मोठे प्रमाण आहे."
       },
       "year": "2022",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -313,8 +313,8 @@
         "mr": "आयुष्यातील प्रत्येक वादळात स्थिर उभा राहिलेला खडक."
       },
       "year": "2022",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -331,8 +331,8 @@
         "mr": "प्रामाणिक घामाने कमावलेला खरा स्वाभिमान."
       },
       "year": "2024",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -349,8 +349,8 @@
         "mr": "नेहमीच समंजसपणे योग्य मार्ग दाखवणारा मार्गदर्शक."
       },
       "year": "2012",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -367,8 +367,8 @@
         "mr": "वादळात झुकणारा, पण कधीही न मोडणारा स्वभाव."
       },
       "year": "2012",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -385,8 +385,8 @@
         "mr": "कोणतीही अपेक्षा न ठेवता फक्त भरभरून देणारे मन."
       },
       "year": "2012",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -403,8 +403,8 @@
         "mr": "प्रेमाच्या प्रत्येक वीटेने घराचे नंदनवन करणारा."
       },
       "year": "2022",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -421,8 +421,8 @@
         "mr": "हातात हात घालून सुरू झालेला एक सुंदर जीवनप्रवास."
       },
       "year": "2022",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -439,8 +439,8 @@
         "mr": "शब्दांशिवाय एकमेकांना समजून घेणारी प्रेमळ साथ."
       },
       "year": "2022",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -453,12 +453,12 @@
         "mr": "घराची उब"
       },
       "caption": {
-        "en": "Home was wherever his warm laughter lived.",
-        "mr": "त्याचे हसू जिथे होते, तिथेच खऱ्या अर्थाने घर होते."
+        "en": "Home is wherever his warm laughter rings.",
+        "mr": "त्यांचे हसू जिथे असते, तिथेच खऱ्या अर्थाने घर वसते."
       },
       "year": "2022",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -475,8 +475,8 @@
         "mr": "आनंद जेव्हा वाटून घेतला जातो, तेव्हा तो द्विगुणित होतो."
       },
       "year": "2022",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -493,8 +493,8 @@
         "mr": "ऋतू बदलले तरी अधिकच बहरत जाणारे निस्वार्थ प्रेम."
       },
       "year": "2022",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -511,8 +511,8 @@
         "mr": "एक कप चहा, मंद वारा आणि शांततेतली आल्हाददायक सोबत."
       },
       "year": "2022",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -529,8 +529,8 @@
         "mr": "प्रत्येकाला आपलेसे करून घेणारे अत्यंत प्रेमळ हास्य."
       },
       "year": "2022",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -547,8 +547,8 @@
         "mr": "शब्दांपेक्षा कृतीतून विणलेली अतूट आणि घट्ट नाती."
       },
       "year": "2022",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -565,9 +565,9 @@
         "mr": "त्यांच्या उपस्थितीने प्रत्येक खोली आपोआप उजळून निघायची."
       },
       "year": "2022",
-      "textPosition": "right",
-      "cutoutPosition": "left",
-      "cutoutScale": 1.0,
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
+      "cutoutScale": 1.3,
       "parallaxIntensity": 1.6
     },
     {
@@ -579,12 +579,12 @@
         "mr": "घर आणि संसार"
       },
       "caption": {
-        "en": "Where love was served on every plate.",
-        "mr": "जिथे प्रत्येक क्षणात आणि घासात प्रेम भरलेले होते."
+        "en": "Where love is served in every meal and moment.",
+        "mr": "जिथे प्रत्येक क्षणात आणि प्रत्येक घासात अथांग प्रेम भरलेले असते."
       },
       "year": "2023",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -601,8 +601,8 @@
         "mr": "हुकूम देऊन नाही, तर स्वतःच्या आचरणातून दिशा दाखवणारे."
       },
       "year": "2023",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -619,8 +619,8 @@
         "mr": "आपल्या मुलांच्या डोळ्यांत स्वतःची स्वप्ने फुलताना पाहणारा."
       },
       "year": "2023",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -637,8 +637,8 @@
         "mr": "दैनंदिन जीवनातून दिलेली माणुसकीची आणि स्नेहाची शिकवण."
       },
       "year": "2023",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -655,8 +655,8 @@
         "mr": "मुलांनी उंचावर झेप घ्यावी म्हणून पाठीशी उभा असलेला आधार."
       },
       "year": "2023",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -673,8 +673,8 @@
         "mr": "त्यांच्या मिठीत साऱ्या जगाची सुरक्षितता जाणवायची."
       },
       "year": "2023",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -691,8 +691,8 @@
         "mr": "बोलण्याआधी शांतपणे ऐकून घेणारा संयमी स्वभाव."
       },
       "year": "2023",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -709,8 +709,8 @@
         "mr": "पिढ्यानपिढ्या गुंजणारे मनमोकळे आणि दिलखुलास हास्य."
       },
       "year": "2015",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -727,8 +727,8 @@
         "mr": "प्रत्येक छोट्या-मोठ्या यशाचे कृतज्ञतेने केलेले स्वागत."
       },
       "year": "2016",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -745,8 +745,8 @@
         "mr": "ज्या प्रेमाला ना कसली मर्यादा होती, ना कोणती अट."
       },
       "year": "2023",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -763,8 +763,8 @@
         "mr": "आयुष्याच्या प्रत्येक वळणावर वाट दाखवणारा दीपस्तंभ."
       },
       "year": "2016",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -781,8 +781,8 @@
         "mr": "दिवाळीच्या दिव्यांपेक्षाही अधिक उजळणारे चेहऱ्यावरचे तेज."
       },
       "year": "2021",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -799,8 +799,8 @@
         "mr": "आपल्या प्रियजनांच्या गोड गोतावळ्यात घालवलेले क्षण."
       },
       "year": "2021",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -817,8 +817,8 @@
         "mr": "उत्सवाच्या आणि रंगांच्या उत्साहात न्हाऊन निघालेले मन."
       },
       "year": "2021",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -835,8 +835,8 @@
         "mr": "परंपरा आणि संस्कृतीचा आदराने जपलेला वारसा."
       },
       "year": "2023",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -853,8 +853,8 @@
         "mr": "घराच्या कानाकोपऱ्यात भरून राहिलेला सणाचा आनंद."
       },
       "year": "2025",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -871,8 +871,8 @@
         "mr": "मंगलाष्टकांच्या सुरांमध्ये दाटून आलेले आनंदाश्रू."
       },
       "year": "2017",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -889,8 +889,8 @@
         "mr": "माथ्यावर प्रेमाने आणि आपुलकीने ठेवलेला आशीर्वादाचा हात."
       },
       "year": "2023",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -907,8 +907,8 @@
         "mr": "एकत्र बसून खाल्लेल्या अन्नाला मिळालेली प्रेमाची गोडी."
       },
       "year": "2023",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -925,10 +925,14 @@
         "mr": "सर्वांना प्रेमाच्या एका धाग्यात गुंफून ठेवणारी शक्ती."
       },
       "year": "2023",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-center",
       "cutoutScale": 1.0,
-      "parallaxIntensity": 1.6
+      "parallaxIntensity": 1.6,
+      "backgroundOffset": {
+        "x": "6vw",
+        "y": 0
+      }
     },
     {
       "id": "slide-50",
@@ -943,8 +947,8 @@
         "mr": "काळाच्या कसोटीवर खरे उतरलेले सोन्यासारखे दिवस."
       },
       "year": "2023",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -961,8 +965,8 @@
         "mr": "नात्यांमधील जिव्हाळा आणि आपुलकीचा साजरा केलेला सोहळा."
       },
       "year": "2025",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -979,8 +983,8 @@
         "mr": "मनातून ओसंडून वाहणारे अस्सल आणि तेजस्वी हास्य."
       },
       "year": "2023",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -997,8 +1001,8 @@
         "mr": "नेहमी उघडी असलेली घराची आणि मनाची कवाडे."
       },
       "year": "2023",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1015,8 +1019,8 @@
         "mr": "वर्षानुवर्षे मनात दरवळणारा आठवणींचा सुगंध."
       },
       "year": "2023",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1033,8 +1037,8 @@
         "mr": "घरी आलेल्या प्रत्येकाला सन्मान आणि प्रेम देणारा स्वभाव."
       },
       "year": "2024",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1051,8 +1055,8 @@
         "mr": "नव्या आकाशाच्या शोधात मोकळ्या वाटेने निघालेला प्रवासी."
       },
       "year": "2024",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1069,8 +1073,8 @@
         "mr": "हिरव्यागार निसर्गाच्या कुशीत मिळालेली आत्मिक शांतता."
       },
       "year": "2023",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1087,8 +1091,8 @@
         "mr": "क्षितिजावर भेटणाऱ्या डोंगरदऱ्यांचे विलोभनीय रूप."
       },
       "year": "2025",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1105,8 +1109,8 @@
         "mr": "श्रद्धा आणि भक्तीभावाने टाकलेले प्रत्येक पवित्र पाऊल."
       },
       "year": "2024",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1123,8 +1127,8 @@
         "mr": "समुद्राच्या अथांग लाटांचे संगीत अनुभवताना."
       },
       "year": "2025",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1141,8 +1145,8 @@
         "mr": "प्रत्येक नवीन जागेचे कुतूहलाने केलेले स्वागत."
       },
       "year": "2023",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1159,8 +1163,8 @@
         "mr": "शांत पाण्यात उमटलेले समाधानी मनाचे प्रतिबिंब."
       },
       "year": "2024",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1177,8 +1181,8 @@
         "mr": "सर्वात सुंदर प्रवास तोच, जो आपुलकीच्या माणसांसोबत होतो."
       },
       "year": "2024",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1195,8 +1199,8 @@
         "mr": "झाडांच्या थंडगार सावलीत मिळालेली तृप्त विश्रांती."
       },
       "year": "2024",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1213,8 +1217,8 @@
         "mr": "नेहमीच्या वाटा सोडून शोधलेले अनपेक्षित सौंदर्य."
       },
       "year": "2025",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1231,8 +1235,8 @@
         "mr": "मावळत्या सूर्याच्या सोनेरी रंगात न्हाऊन निघालेले आकाश."
       },
       "year": "2025",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1245,12 +1249,12 @@
         "mr": "शांत निवारा"
       },
       "caption": {
-        "en": "A place where the soul could simply breathe.",
-        "mr": "जिथे मन सर्व चिंता विसरून शांत विसावू शकत होते."
+        "en": "A tranquil haven where mind and heart find complete peace.",
+        "mr": "जिथे मन सर्व चिंता विसरून शांत आणि प्रसन्न विसावते."
       },
       "year": "2025",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1267,8 +1271,8 @@
         "mr": "दिवसाच्या पहिल्या कोवळ्या किरणांचे प्रसन्न स्वागत."
       },
       "year": "2025",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1285,8 +1289,8 @@
         "mr": "वस्तूंऐवजी अनमोल क्षणांची केलेली समृद्ध पुंजी."
       },
       "year": "2025",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1303,8 +1307,8 @@
         "mr": "दूरवर पसरलेल्या क्षितिजाकडे टक लावून पाहताना."
       },
       "year": "2025",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1321,8 +1325,8 @@
         "mr": "ज्याने जगाकडे नेहमीच दयाळू आणि समंजस नजरेने पाहिले."
       },
       "year": "2025",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1336,11 +1340,11 @@
       },
       "caption": {
         "en": "A quiet heart speaks with majestic volume.",
-        "mr": "शांतता हीच ज्यांच्या व्यक्तिमत्त्वाची खरी ताकद होती."
+        "mr": "शांतता हीच ज्यांच्या व्यक्तिमत्त्वाची खरी ताकद आहे."
       },
       "year": "2025",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1357,8 +1361,8 @@
         "mr": "मनातील समाधान हीच आयुष्यातील सर्वात मोठी संपत्ती."
       },
       "year": "2025",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1375,8 +1379,8 @@
         "mr": "जवळ येणाऱ्या प्रत्येकाला सावली देणारा महावृक्ष."
       },
       "year": "2025",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1393,8 +1397,8 @@
         "mr": "कमी बोलणारे, पण बोलतील ते लाख मोलाचे ठरणारे."
       },
       "year": "2025",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1411,8 +1415,8 @@
         "mr": "प्रत्येक पावलावर समाधानाचा अनुभव घेत चालताना."
       },
       "year": "2025",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1429,8 +1433,8 @@
         "mr": "पुढच्या पिढीसाठी सुरक्षित आणि प्रेमळ किनारा."
       },
       "year": "2025",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1447,8 +1451,8 @@
         "mr": "साध्या साध्या गोष्टींतून मिळणारा अथांग आनंद."
       },
       "year": "2025",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1465,8 +1469,8 @@
         "mr": "आयुष्याच्या प्रत्येक परीक्षेत जपलेले निष्पाप आणि निर्मळ मन."
       },
       "year": "2025",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1483,8 +1487,8 @@
         "mr": "सद्गुणांचा कधीही न बदलणारा अढळ ध्रुव तारा."
       },
       "year": "2025",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1501,8 +1505,8 @@
         "mr": "अभिमानाने आणि सन्मानाने जगलेले एक आदर्श आयुष्य."
       },
       "year": "2025",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1519,8 +1523,8 @@
         "mr": "आयुष्याच्या सायंकाळी चमकणारे शांत आणि तृप्त तेज."
       },
       "year": "2025",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1537,8 +1541,8 @@
         "mr": "पुढच्या पिढीला प्रेमाने दिलेली अनुभवाची अनमोल शिदोरी."
       },
       "year": "2025",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1555,8 +1559,8 @@
         "mr": "अथांग प्रेमाने आणि मायेने जीवनाकडे पाहणारा."
       },
       "year": "2025",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1573,8 +1577,8 @@
         "mr": "काळासोबत अधिकच समृद्ध आणि अर्थपूर्ण होत गेलेले जीवन."
       },
       "year": "2026",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1591,8 +1595,8 @@
         "mr": "मुक्याने केलेल्या प्रत्येक त्यागासाठी मनापासून कृतज्ञता."
       },
       "year": "2026",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1609,8 +1613,8 @@
         "mr": "भूतकाळ आणि भविष्यकाळाला जोडणारा एक भक्कम सेतू."
       },
       "year": "2025",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1627,8 +1631,8 @@
         "mr": "फक्त द्यायला शिकलेले, कधीही न मागितलेले सोन्याचे मन."
       },
       "year": "2026",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1641,12 +1645,12 @@
         "mr": "अनमोल सहवास"
       },
       "caption": {
-        "en": "Every second in his presence was a blessing.",
-        "mr": "त्यांच्या सहवासातला प्रत्येक क्षण हा ईश्वरी आशीर्वाद होता."
+        "en": "Every moment in his presence is a blessing.",
+        "mr": "त्यांच्या सहवासातला प्रत्येक क्षण हा आपल्यासाठी ईश्वरी आशीर्वाद आहे."
       },
       "year": "2026",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1663,8 +1667,8 @@
         "mr": "आपल्या हृदयात कायमचे घर करून राहिलेले मनमोहक हास्य."
       },
       "year": "2026",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1677,12 +1681,12 @@
         "mr": "मायेची पाऊलवाट"
       },
       "caption": {
-        "en": "Leaving footprints of love everywhere he went.",
-        "mr": "जिथे गेले तिथे प्रेमाची आणि माणुसकीची पाऊलवाट सोडणारे."
+        "en": "Leaving footprints of kindness and joy everywhere he goes.",
+        "mr": "जिथे जातात तिथे प्रेमाची आणि आनंदाची पाऊलवाट निर्माण करणारे."
       },
       "year": "2026",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1691,16 +1695,16 @@
       "backgroundImage": "88.jpg",
       "cutoutImage": "88_cutout.png",
       "title": {
-        "en": "Living Legacy",
-        "mr": "जिवंत वारसा"
+        "en": "50 Years of Wisdom",
+        "mr": "५० वर्षांची समृद्ध वाटचाल"
       },
       "caption": {
-        "en": "His values live on in all of us.",
-        "mr": "त्यांचे विचार आणि संस्कार आपल्या सर्वांच्या रूपात जिवंत आहेत."
+        "en": "Your values and guidance inspire us each and every day.",
+        "mr": "तुमचे विचार आणि संस्कार आम्हा सर्वांना प्रत्येक क्षणी नवी प्रेरणा देतात."
       },
       "year": "2026",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1709,16 +1713,16 @@
       "backgroundImage": "89.jpg",
       "cutoutImage": "89_cutout.png",
       "title": {
-        "en": "Eternal Bond",
+        "en": "Unbreakable Bond",
         "mr": "अतूट नाते"
       },
       "caption": {
-        "en": "Some bonds transcend the bounds of time.",
-        "mr": "काही नाती काळाच्या आणि अंतराच्या पलीकडे अमर असतात."
+        "en": "A lifelong bond of love and respect that grows stronger every day.",
+        "mr": "काळासोबत अधिकच घट्ट आणि समृद्ध होत जाणारे प्रेमाचे अतूट नाते."
       },
       "year": "2026",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1727,16 +1731,16 @@
       "backgroundImage": "90.jpg",
       "cutoutImage": "90_cutout.png",
       "title": {
-        "en": "Warmth Forever",
+        "en": "Everlasting Warmth",
         "mr": "चिरंतन उब"
       },
       "caption": {
-        "en": "The warmth of your love will never fade.",
-        "mr": "तुमच्या प्रेमाची उबदार सावली आम्हाला कायम सोबत करेल."
+        "en": "The warmth of your love continues to guide and protect our family.",
+        "mr": "तुमच्या प्रेमाची आणि आशीर्वादाची सावली आमच्या पाठीशी सदैव खंबीर उभी आहे."
       },
       "year": "2026",
-      "textPosition": "right",
-      "cutoutPosition": "left",
+      "textPosition": "top-right",
+      "cutoutPosition": "bottom-left",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1753,8 +1757,8 @@
         "mr": "कोणताही बडेजाव न मिरवणारा आमचा खरा हिरो—आमचे बाबा."
       },
       "year": "2026",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1771,8 +1775,8 @@
         "mr": "काळोखातही आम्हाला योग्य मार्ग दाखवणारा प्रकाश."
       },
       "year": "2026",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1781,16 +1785,16 @@
       "backgroundImage": "93.jpg",
       "cutoutImage": "93_cutout.png",
       "title": {
-        "en": "In Every Breath",
-        "mr": "प्रत्येक श्वासात"
+        "en": "Golden Milestone",
+        "mr": "सुवर्ण महोत्सवी क्षण"
       },
       "caption": {
-        "en": "Remembered with love in every heartbeat.",
-        "mr": "प्रत्येक श्वासात आणि ठोक्यात जाणवणारी तुमची आठवण."
+        "en": "Celebrating 50 magnificent years filled with courage, love, and laughter.",
+        "mr": "प्रेम, त्याग आणि हास्याने परिपूर्ण ५० सुवर्ण वर्षांचा गौरवशाली सोहळा!"
       },
       "year": "2026",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1799,16 +1803,16 @@
       "backgroundImage": "94.jpg",
       "cutoutImage": "94_cutout.png",
       "title": {
-        "en": "Always & Forever",
-        "mr": "नेहमी आणि कायम"
+        "en": "Cheers to 50!",
+        "mr": "५० वर्षांचा गौरव"
       },
       "caption": {
-        "en": "Held in memory, loved beyond measure.",
-        "mr": "आठवणीत जतन केलेले, मोजमापापलीकडचे निस्वार्थ प्रेम."
+        "en": "Honoring fifty glorious years and looking forward to many more joyful decades together!",
+        "mr": "५० वर्षांच्या यशस्वी जीवनप्रवासाचा आनंदोत्सव आणि पुढील सुखद प्रवासासाठी मनःपूर्वक शुभेच्छा!"
       },
       "year": "2026",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     },
@@ -1817,28 +1821,28 @@
       "backgroundImage": "95.jpg",
       "cutoutImage": "95_cutout.png",
       "title": {
-        "en": "Timeless Grace",
-        "mr": "अमर तेज"
+        "en": "The Golden Journey Continues",
+        "mr": "सुवर्ण जीवनगाथा"
       },
       "caption": {
-        "en": "A story written in lines of pure love.",
-        "mr": "केवळ आणि केवळ निस्वार्थ प्रेमाने लिहिलेली एक जीवनगाथा."
+        "en": "50 wonderful chapters celebrated, and the happiest years still ahead!",
+        "mr": "५० वर्षांची ही सुंदर जीवनगाथा साजरी करताना, पुढील प्रत्येक वर्षासाठी अनंत शुभेच्छा!"
       },
       "year": "2026",
-      "textPosition": "left",
-      "cutoutPosition": "right",
+      "textPosition": "top-left",
+      "cutoutPosition": "bottom-right",
       "cutoutScale": 1.0,
       "parallaxIntensity": 1.6
     }
   ],
   "outro": {
     "heading": {
-      "en": "With Love",
-      "mr": "प्रेमाने"
+      "en": "Happy 50th Birthday!",
+      "mr": "५० व्या वाढदिवसाच्या हार्दिक शुभेच्छा!"
     },
     "message": {
-      "en": "Thank you for every moment, every smile, and your endless love.",
-      "mr": "प्रत्येक क्षणासाठी, प्रत्येक हास्यासाठी आणि तुमच्या अथांग प्रेमासाठी आम्ही सदैव ऋणी आहोत."
+      "en": "Wishing you abundant joy, good health, and many more wonderful years ahead!",
+      "mr": "तुम्हाला उत्तम आरोग्य, दीर्घायुष्य आणि सदैव सुख-समाधान लाभो हीच प्रार्थना. ५० व्या वाढदिवसाच्या खूप खूप शुभेच्छा!"
     },
     "backgroundImage": "0.jpg"
   }

@@ -28,8 +28,10 @@ export function initLoader(config, slides, onComplete) {
   }
 
   // Set father's name
-  const lang = config.site.defaultLanguage || 'en';
-  nameEl.textContent = config.site.title[lang] || config.site.title['en'] || '';
+  const lang = document.documentElement.lang || config.site.defaultLanguage || 'en';
+  if (nameEl) {
+    nameEl.textContent = (config.site.title && (config.site.title[lang] || config.site.title['en'])) || 'Amol Patil';
+  }
 
   // Pick up to 7 slides for the stack (spread from centre of list)
   const preview = pickPreviewSlides(slides, 7);
@@ -59,6 +61,9 @@ export function initLoader(config, slides, onComplete) {
     top: '50%',
     position: 'absolute'
   });
+  if (titleEl) {
+    gsap.set(titleEl, { opacity: 0, y: 18 });
+  }
 
   const tl = gsap.timeline({ defaults: { ease: 'expo.out' } });
 

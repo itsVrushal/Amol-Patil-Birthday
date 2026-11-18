@@ -2,3 +2,8 @@ node_modules
 .hallmark
 img_Dir
 models
+env
+dist
+*.bak
+dist
+*.bak

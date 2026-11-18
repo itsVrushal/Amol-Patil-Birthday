@@ -19,6 +19,8 @@ export function buildSlides(config) {
   const outro = document.getElementById('slide-outro');
   if (!track) return;
 
+  const defaultLang = config.site?.defaultLanguage || 'en';
+
   config.slides.forEach((slide) => {
     // 1. Text position & styles
     const textCfg = slide.textPosition || 'left';
@@ -34,15 +36,33 @@ export function buildSlides(config) {
       slide.cutoutOffset
     );
 
+    // Background styling & offsets
+    let bgInlineStyle = `background-image: url('/images/originals/${bgJpg(slide.backgroundImage)}');`;
+    if (slide.backgroundPosition) {
+      bgInlineStyle += ` background-position: ${slide.backgroundPosition};`;
+    }
+    const bgOffset = slide.backgroundOffset || slide.bgOffset;
+    let bgOffsetX = 0;
+    let bgOffsetY = 0;
+    if (bgOffset) {
+      if (bgOffset.x != null) bgOffsetX = bgOffset.x;
+      if (bgOffset.y != null) bgOffsetY = bgOffset.y;
+    } else {
+      if (slide.bgOffsetX != null) bgOffsetX = slide.bgOffsetX;
+      if (slide.bgOffsetY != null) bgOffsetY = slide.bgOffsetY;
+    }
+
     const section = document.createElement('section');
     section.className = `slide slide--photo`;
     section.id = slide.id;
     section.dataset.index = config.slides.indexOf(slide);
     section.dataset.intensity = slide.parallaxIntensity != null ? slide.parallaxIntensity : 1.5;
+    section.dataset.bgOffsetX = bgOffsetX;
+    section.dataset.bgOffsetY = bgOffsetY;
 
     section.innerHTML = `
       <!-- Layer 1: Background Photo -->
-      <div class="slide__bg" style="background-image: url('/images/originals/${bgJpg(slide.backgroundImage)}')"></div>
+      <div class="slide__bg" style="${bgInlineStyle}"></div>
 
       <!-- Vignette Overlay -->
       <div class="slide__vignette"></div>
@@ -50,27 +70,29 @@ export function buildSlides(config) {
       <!-- Layer 2: Text Overlay -->
       <div class="${textClass}" style="${textInlineStyle}">
         <div class="accent-line fade-in-up"></div>
-        <p class="slide__year fade-in-up"
-           data-i18n-slide="${slide.id}" data-i18n-field="year">${slide.year || ''}</p>
         <h2 class="slide__title fade-in-up"
             data-i18n-slide="${slide.id}" data-i18n-field="title">
-          ${getLangVal(slide.title, 'en')}
+          ${getLangVal(slide.title, defaultLang)}
         </h2>
         <p class="slide__caption fade-in-up"
            data-i18n-slide="${slide.id}" data-i18n-field="caption">
-          ${getLangVal(slide.caption, 'en')}
+          ${getLangVal(slide.caption, defaultLang)}
         </p>
       </div>
 
       <!-- Layer 3: Foreground Person Cutout -->
       <div class="${cutoutClass}" style="${cutoutInlineStyle}">
-        <img
-          src="/images/cutouts/${slide.cutoutImage}"
-          alt="${getLangVal(slide.title, 'en')}"
-          loading="eager"
-          style="${imgInlineStyle}"
-          onerror="this.parentElement.style.display='none'"
-        />
+        <div class="slide__cutout-inner">
+          <div class="slide__cutout-wrap">
+            <img
+              src="/images/cutouts/${slide.cutoutImage}"
+              alt="${getLangVal(slide.title, defaultLang)}"
+              loading="eager"
+              style="${imgInlineStyle}"
+              onerror="this.closest('.slide__cutout').style.display='none'"
+            />
+          </div>
+        </div>
       </div>
     `;
 
