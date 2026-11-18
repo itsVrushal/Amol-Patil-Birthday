@@ -12,6 +12,7 @@
 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { loadSlideWindow } from './slides.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -239,6 +240,8 @@ function updateNav(progress, totalSlides) {
 
   // Counter (only counts photo slides, skip intro/outro)
   const photoIdx = activeIdx - 1; // subtract intro
+  loadSlideWindow(photoIdx >= 0 ? photoIdx : 0, 2, 4);
+
   const counterCur = document.querySelector('.counter-current');
   const counterTot = document.querySelector('.counter-total');
   if (counterCur) {
@@ -267,6 +270,9 @@ export function goToSlide(index, immediate = false) {
   navTimeout = setTimeout(() => { isNavigating = false; }, immediate ? 50 : 1600);
 
   triggerCutoutDrift(safeIdx, dir);
+
+  const photoIdx = safeIdx - 1;
+  loadSlideWindow(photoIdx >= 0 ? photoIdx : 0, 2, 4);
 
   // Exact target in pixels matching this slide's offsetLeft
   const target = targetSlide.offsetLeft;

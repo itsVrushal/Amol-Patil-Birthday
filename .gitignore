@@ -5,5 +5,7 @@ models
 env
 dist
 *.bak
+cutouts_png_backup
 dist
 *.bak
+cutouts_png_backup

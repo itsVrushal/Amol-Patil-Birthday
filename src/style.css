@@ -292,6 +292,13 @@ html:not(.js) .slide { height: auto; min-height: 100svh; }
   z-index: 1;
   /* Minor smoothing filter: optical soft focus (bokeh) to remove grain & compression artifacts */
   filter: blur(3px) brightness(0.56) contrast(0.98) saturate(0.92) sepia(0.05);
+  transition: opacity 0.4s ease-out;
+}
+.slide--photo:not([data-loaded="true"]) .slide__bg {
+  opacity: 0;
+}
+.slide--photo[data-loaded="true"] .slide__bg {
+  opacity: 1;
 }
 
 .slide__bg--blurred {
@@ -417,6 +424,13 @@ html:not(.js) .slide { height: auto; min-height: 100svh; }
   -webkit-mask-image: linear-gradient(to bottom, black 86%, rgba(0, 0, 0, 0.3) 95%, transparent 100%);
   mask-image: linear-gradient(to bottom, black 86%, rgba(0, 0, 0, 0.3) 95%, transparent 100%);
   transform-origin: bottom center;
+  transition: opacity 0.35s ease-out;
+}
+.slide--photo:not([data-loaded="true"]) .slide__cutout img {
+  opacity: 0;
+}
+.slide--photo[data-loaded="true"] .slide__cutout img {
+  opacity: 1;
 }
 
 

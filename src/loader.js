@@ -10,6 +10,7 @@
  */
 
 import { gsap } from 'gsap';
+import { bgJpg, cutoutWebp } from './slides.js';
 
 const SHOW_DURATION = 1200; // ms before auto-dismiss (after fan anim)
 const REDUCED = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -112,9 +113,54 @@ export function initLoader(config, slides, onComplete) {
   window.addEventListener('keydown', triggerDismiss, { once: true });
   window.addEventListener('touchstart', triggerDismiss, { once: true, passive: true });
 
-  // ── Step 4: Auto-dismiss after delay ───────────────────────
+  // Preload initial slides in background while cards deal
+  const preloadPromise = preloadInitialSlides(slides, 3);
+
+  // ── Step 4: Auto-dismiss when animation finishes AND initial slides are ready
   tl.call(() => {
-    setTimeout(triggerDismiss, SHOW_DURATION);
+    preloadPromise.then(() => {
+      setTimeout(triggerDismiss, SHOW_DURATION);
+    });
+  });
+}
+
+function preloadInitialSlides(slides, count = 3) {
+  return new Promise((resolve) => {
+    const toLoad = ['/images/originals/0.jpg'];
+    const maxCount = Math.min(count, slides.length);
+
+    for (let i = 0; i < maxCount; i++) {
+      const s = slides[i];
+      if (s.backgroundImage) {
+        toLoad.push(`/images/originals/${bgJpg(s.backgroundImage)}`);
+      }
+      if (s.cutoutImage) {
+        toLoad.push(`/images/cutouts/${cutoutWebp(s.cutoutImage)}`);
+      }
+    }
+
+    let remaining = toLoad.length;
+    if (remaining === 0) {
+      resolve();
+      return;
+    }
+
+    // Safety timeout: never hang more than 2.5s
+    const timer = setTimeout(() => {
+      resolve();
+    }, 2500);
+
+    toLoad.forEach((url) => {
+      const img = new Image();
+      img.onload = img.onerror = () => {
+        remaining--;
+        if (remaining <= 0) {
+          clearTimeout(timer);
+          resolve();
+        }
+      };
+      img.src = url;
+    });
   });
 }
 
@@ -150,8 +196,4 @@ function pickPreviewSlides(slides, n) {
   if (slides.length <= n) return slides;
   const step = Math.floor(slides.length / n);
   return Array.from({ length: n }, (_, i) => slides[i * step]);
-}
-
-function bgJpg(filename) {
-  return filename.replace(/\.(JPG|JPEG|jpeg)$/i, '.jpg');
 }

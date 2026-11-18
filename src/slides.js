@@ -21,7 +21,7 @@ export function buildSlides(config) {
 
   const defaultLang = config.site?.defaultLanguage || 'en';
 
-  config.slides.forEach((slide) => {
+  config.slides.forEach((slide, index) => {
     // 1. Text position & styles
     const textCfg = slide.textPosition || 'left';
     const { textClass, textInlineStyle } = parseTextPosition(textCfg, slide.textOffset);
@@ -37,7 +37,11 @@ export function buildSlides(config) {
     );
 
     // Background styling & offsets
-    let bgInlineStyle = `background-image: url('/images/originals/${bgJpg(slide.backgroundImage)}');`;
+    const bgUrl = `/images/originals/${bgJpg(slide.backgroundImage)}`;
+    const cutoutSrc = `/images/cutouts/${cutoutWebp(slide.cutoutImage)}`;
+    const isImmediate = index < 3;
+
+    let bgInlineStyle = isImmediate ? `background-image: url('${bgUrl}');` : '';
     if (slide.backgroundPosition) {
       bgInlineStyle += ` background-position: ${slide.backgroundPosition};`;
     }
@@ -52,17 +56,22 @@ export function buildSlides(config) {
       if (slide.bgOffsetY != null) bgOffsetY = slide.bgOffsetY;
     }
 
+    const initialImgSrc = isImmediate
+      ? cutoutSrc
+      : 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1"%3E%3C/svg%3E';
+
     const section = document.createElement('section');
     section.className = `slide slide--photo`;
     section.id = slide.id;
-    section.dataset.index = config.slides.indexOf(slide);
+    section.dataset.index = index;
+    section.dataset.loaded = isImmediate ? 'true' : 'false';
     section.dataset.intensity = slide.parallaxIntensity != null ? slide.parallaxIntensity : 1.5;
     section.dataset.bgOffsetX = bgOffsetX;
     section.dataset.bgOffsetY = bgOffsetY;
 
     section.innerHTML = `
       <!-- Layer 1: Background Photo -->
-      <div class="slide__bg" style="${bgInlineStyle}"></div>
+      <div class="slide__bg" data-bg="${bgUrl}" style="${bgInlineStyle}"></div>
 
       <!-- Vignette Overlay -->
       <div class="slide__vignette"></div>
@@ -85,9 +94,11 @@ export function buildSlides(config) {
         <div class="slide__cutout-inner">
           <div class="slide__cutout-wrap">
             <img
-              src="/images/cutouts/${slide.cutoutImage}"
+              src="${initialImgSrc}"
+              data-src="${cutoutSrc}"
               alt="${getLangVal(slide.title, defaultLang)}"
-              loading="eager"
+              loading="${isImmediate ? 'eager' : 'lazy'}"
+              decoding="async"
               style="${imgInlineStyle}"
               onerror="this.closest('.slide__cutout').style.display='none'"
             />
@@ -165,6 +176,41 @@ function getLangVal(obj, lang) {
 }
 
 // Return JPG filename even if original was JPG/JPEG
-function bgJpg(filename) {
+export function bgJpg(filename) {
+  if (!filename) return '';
   return filename.replace(/\.(JPG|JPEG|jpeg)$/i, '.jpg');
+}
+
+export function cutoutWebp(filename) {
+  if (!filename) return '';
+  return filename.replace(/\.(png|PNG)$/i, '.webp');
+}
+
+export function ensureSlideLoaded(index) {
+  const slides = document.querySelectorAll('#slidesTrack > .slide--photo');
+  if (index < 0 || index >= slides.length) return;
+  const slide = slides[index];
+  if (!slide || slide.dataset.loaded === 'true') return;
+
+  const bg = slide.querySelector('.slide__bg');
+  if (bg && bg.dataset.bg && (!bg.style.backgroundImage || bg.style.backgroundImage === 'none')) {
+    bg.style.backgroundImage = `url('${bg.dataset.bg}')`;
+  }
+
+  const img = slide.querySelector('.slide__cutout-wrap img');
+  if (img && img.dataset.src && img.src !== img.dataset.src) {
+    img.src = img.dataset.src;
+  }
+
+  slide.dataset.loaded = 'true';
+}
+
+export function loadSlideWindow(centerIdx, bufferBefore = 2, bufferAfter = 4) {
+  const slides = document.querySelectorAll('#slidesTrack > .slide--photo');
+  if (!slides || !slides.length) return;
+  const start = Math.max(0, centerIdx - bufferBefore);
+  const end = Math.min(slides.length - 1, centerIdx + bufferAfter);
+  for (let i = start; i <= end; i++) {
+    ensureSlideLoaded(i);
+  }
 }

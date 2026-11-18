@@ -8,7 +8,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis              from 'lenis';
 
 import config            from '../config.json';
-import { buildSlides }   from './slides.js';
+import { buildSlides, loadSlideWindow }   from './slides.js';
 import { initParallax, goToSlide, getActiveSlideIndex } from './parallax.js';
 import { initLoader }    from './loader.js';
 import { initI18n, switchLang, renderAll, getLang } from './i18n.js';
@@ -114,6 +114,7 @@ function bootSite() {
 
   // ── Init parallax engine ─────────────────────────────────────
   initParallax(lenis, config.slides.length);
+  loadSlideWindow(0, 0, 4);
 
   const totalSlides = document.querySelectorAll('#slidesTrack > .slide').length;
 
