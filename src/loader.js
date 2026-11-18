@@ -15,7 +15,7 @@ import { bgJpg, cutoutWebp } from './slides.js';
 const SHOW_DURATION = 1200; // ms before auto-dismiss (after fan anim)
 const REDUCED = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-export function initLoader(config, slides, onComplete) {
+export function initLoader(config, slides, siteReadyPromise, onDismiss) {
   const loaderEl = document.getElementById('loader');
   const stackEl = document.getElementById('loaderStack');
   const nameEl = document.getElementById('loaderName');
@@ -27,7 +27,7 @@ export function initLoader(config, slides, onComplete) {
   // Under reduced motion the story serves itself: no loader, straight in (27)
   if (!loaderEl || !stackEl || REDUCED) {
     if (loaderEl) loaderEl.style.display = 'none';
-    onComplete();
+    if (onDismiss) onDismiss();
     return;
   }
 
@@ -69,26 +69,14 @@ export function initLoader(config, slides, onComplete) {
     gsap.set(titleEl, { opacity: 0, y: 18 });
   }
 
-  // Collect all critical assets needed for flawless entrance
-  const initialSlideAssets = [];
-  for (let i = 0; i < Math.min(3, slides.length); i++) {
-    const s = slides[i];
-    if (s.backgroundImage) initialSlideAssets.push(`/images/originals/${bgJpg(s.backgroundImage)}`);
-    if (s.cutoutImage) initialSlideAssets.push(`/images/cutouts/${cutoutWebp(s.cutoutImage)}`);
-  }
+  // ── Preload 7 card images so collage deals with crisp images ──
+  const cardUrls = preview.map(s => `/images/originals/${bgJpg(s.backgroundImage)}`);
+  let cardsLoaded = 0;
+  const totalCards = cardUrls.length;
 
-  const assetUrls = Array.from(new Set([
-    '/images/originals/0.jpg',
-    ...preview.map(s => `/images/originals/${bgJpg(s.backgroundImage)}`),
-    ...initialSlideAssets
-  ]));
-
-  let loadedCount = 0;
-  const totalCount = assetUrls.length + (document.fonts ? 1 : 0);
-
-  function advanceProgress() {
-    loadedCount++;
-    const pct = Math.min(100, Math.round((loadedCount / totalCount) * 100));
+  function advanceCardProgress() {
+    cardsLoaded++;
+    const pct = Math.min(100, Math.round((cardsLoaded / totalCards) * 100));
     if (progressBar) {
       progressBar.style.width = `${pct}%`;
     }
@@ -97,15 +85,17 @@ export function initLoader(config, slides, onComplete) {
   // Dismiss controller
   let dismissed = false;
   let tl = null;
+  let swayTween = null;
 
   const triggerDismiss = () => {
     if (dismissed) return;
     dismissed = true;
     if (tl) tl.kill();
+    if (swayTween) swayTween.kill();
     window.removeEventListener('wheel', triggerDismiss);
     window.removeEventListener('keydown', triggerDismiss);
     window.removeEventListener('touchstart', triggerDismiss);
-    dismissLoader(cards, loaderEl, onComplete);
+    dismissLoader(cards, loaderEl, onDismiss);
   };
 
   loaderEl.addEventListener('click', triggerDismiss, { once: true });
@@ -113,39 +103,33 @@ export function initLoader(config, slides, onComplete) {
   window.addEventListener('keydown', triggerDismiss, { once: true });
   window.addEventListener('touchstart', triggerDismiss, { once: true, passive: true });
 
-  // Start preloading images & fonts
-  const assetPromises = assetUrls.map(url => {
+  // Preload card images
+  const cardPromises = cardUrls.map(url => {
     return new Promise(resolve => {
       const img = new Image();
       img.onload = img.onerror = () => {
-        advanceProgress();
+        advanceCardProgress();
         resolve();
       };
       img.src = url;
     });
   });
 
-  if (document.fonts) {
-    assetPromises.push(
-      document.fonts.ready.then(() => advanceProgress()).catch(() => advanceProgress())
-    );
-  }
+  // Safety timer for collage cards (3.0s max wait)
+  let cardSafetyFired = false;
+  const cardSafetyTimer = setTimeout(() => {
+    cardSafetyFired = true;
+    startCardsCelebration();
+  }, 3000);
 
-  // Safety timer (4.5s max wait)
-  let safetyFired = false;
-  const safetyTimer = setTimeout(() => {
-    safetyFired = true;
-    startCelebration();
-  }, 4500);
-
-  Promise.all(assetPromises).then(() => {
-    if (!safetyFired) {
-      clearTimeout(safetyTimer);
-      startCelebration();
+  Promise.all(cardPromises).then(() => {
+    if (!cardSafetyFired) {
+      clearTimeout(cardSafetyTimer);
+      startCardsCelebration();
     }
   });
 
-  function startCelebration() {
+  function startCardsCelebration() {
     if (dismissed) return;
 
     if (progressBar) progressBar.style.width = '100%';
@@ -155,7 +139,7 @@ export function initLoader(config, slides, onComplete) {
       gsap.to(preloaderEl, {
         opacity: 0,
         scale: 0.92,
-        duration: 0.5,
+        duration: 0.45,
         ease: 'power2.inOut',
         onComplete: () => {
           preloaderEl.style.display = 'none';
@@ -194,18 +178,35 @@ export function initLoader(config, slides, onComplete) {
       ease: 'power3.out'
     }, '-=0.3');
 
-    // Step 4: Auto-dismiss after display duration
+    // Step 4: Keep collage visible until webapp is 100% loaded & ready!
     tl.call(() => {
-      setTimeout(triggerDismiss, SHOW_DURATION);
+      // Gentle breathing floating motion while cards hold on screen
+      swayTween = gsap.to(cards, {
+        y: (i) => Math.pow(Math.abs(i - (total - 1) / 2), 1.4) * 8 + ((i % 2 === 0) ? 6 : -6),
+        duration: 3.2,
+        ease: 'sine.inOut',
+        yoyo: true,
+        repeat: -1,
+      });
+
+      // Wait for BOTH:
+      // 1. Minimum display time (1400ms) to admire the cards & golden title
+      // 2. AND the webapp behind being 100% booted, decoded, and ready!
+      const minDisplayPromise = new Promise(res => setTimeout(res, SHOW_DURATION));
+      const readyPromise = siteReadyPromise ? Promise.resolve(siteReadyPromise) : Promise.resolve();
+
+      Promise.all([minDisplayPromise, readyPromise]).then(() => {
+        triggerDismiss();
+      });
     });
   }
 }
 
-function dismissLoader(cards, loaderEl, onComplete) {
+function dismissLoader(cards, loaderEl, onDismiss) {
   const tl = gsap.timeline({
     onComplete: () => {
       loaderEl.style.display = 'none';
-      onComplete();
+      if (onDismiss) onDismiss();
     }
   });
 

@@ -8,7 +8,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis              from 'lenis';
 
 import config            from '../config.json';
-import { buildSlides, loadSlideWindow }   from './slides.js';
+import { buildSlides, loadSlideWindow, bgJpg, cutoutWebp }   from './slides.js';
 import { initParallax, goToSlide, getActiveSlideIndex } from './parallax.js';
 import { initLoader }    from './loader.js';
 import { initI18n, switchLang, renderAll, getLang } from './i18n.js';
@@ -66,76 +66,115 @@ window.addEventListener('keydown', (e) => {
   }
 });
 
-// ── 8. Run opening loader, then boot site ─────────────────────
-initLoader(config, config.slides, bootSite);
+// ── 8. Prepare WebApp in Background Behind Loader ─────────────
+const app = document.getElementById('app');
+if (app) app.style.opacity = '1';
 
+// Lenis smooth scroll (vertical → mapped to horizontal)
+const lenis = new Lenis({
+  orientation: 'vertical',
+  gestureOrientation: 'both',
+  smoothWheel: true,
+  wheelMultiplier: 1.0,
+  touchMultiplier: 2.0,
+  infinite: false,
+  lerp: 0.085,
+});
 
-// ════════════════════════════════════════════════════════════════
-function bootSite() {
-  const app = document.getElementById('app');
-  if (REDUCED) {
-    app.style.opacity = '1';
-  } else {
-    gsap.to(app, { opacity: 1, duration: 0.6, ease: 'power2.out' });
-  }
+// Link Lenis scroll to GSAP ScrollTrigger
+lenis.on('scroll', ScrollTrigger.update);
+gsap.ticker.add((time) => lenis.raf(time * 1000));
+gsap.ticker.lagSmoothing(0);
+lenis.on('scroll', tryPlay);
 
+// Init parallax engine (pins #scrollContainer, precomputes all 99 slide ScrollTriggers)
+initParallax(lenis, config.slides.length);
+loadSlideWindow(0, 0, 4);
+
+const totalSlides = document.querySelectorAll('#slidesTrack > .slide').length;
+
+// Preload & GPU-decode intro slide + first 4 slides + fonts in background
+const siteReadyPromise = prepareSiteAssets(config);
+
+// Run opening loader, holding screen until BOTH collage & siteReadyPromise are ready
+initLoader(config, config.slides, siteReadyPromise, revealSite);
+
+function revealSite() {
   // Show UI chrome
   document.getElementById('langToggle')?.classList.add('visible');
   document.getElementById('musicPlayer')?.classList.add('visible');
 
-  // ── Lenis smooth scroll (vertical → mapped to horizontal) ───
-  const lenis = new Lenis({
-    orientation: 'vertical',
-    gestureOrientation: 'both',
-    smoothWheel: true,
-    wheelMultiplier: 1.0,
-    touchMultiplier: 2.0,
-    infinite: false,
-    lerp: 0.085,
-  });
-
-  // Link Lenis scroll to GSAP ScrollTrigger
-  lenis.on('scroll', ScrollTrigger.update);
-
-  // Lenis → GSAP ticker
-  gsap.ticker.add((time) => lenis.raf(time * 1000));
-  gsap.ticker.lagSmoothing(0);
-
-  // Scroll events also try to unlock audio
-  lenis.on('scroll', tryPlay);
-
-  // ── Intro animation (content is visible by default in CSS) ──
+  // Trigger intro animation
   const introContent = document.querySelector('.intro-content');
   const scrollHint   = document.querySelector('.scroll-hint');
   if (!REDUCED) {
-    gsap.from(introContent, { opacity: 0, y: 20, duration: 1.4, ease: 'power3.out', delay: 0.3 });
-    gsap.from(scrollHint,   { opacity: 0,        duration: 1.0, ease: 'power2.out', delay: 1.4 });
+    gsap.from(introContent, { opacity: 0, y: 20, duration: 1.4, ease: 'power3.out', delay: 0.1 });
+    gsap.from(scrollHint,   { opacity: 0,        duration: 1.0, ease: 'power2.out', delay: 0.9 });
   }
 
-  // ── Init parallax engine ─────────────────────────────────────
-  initParallax(lenis, config.slides.length);
-  loadSlideWindow(0, 0, 4);
+  // Refresh ScrollTrigger to ensure all pins and dimensions are pixel-perfect
+  ScrollTrigger.refresh();
 
-  const totalSlides = document.querySelectorAll('#slidesTrack > .slide').length;
+  // Start autoscroll
+  startAutoScroll();
+}
 
-  // ── Auto-scroll after 10s of inactivity ──────────────────────
-  const autoScrollDelay = (config.ui?.autoScrollSeconds || 10) * 1000;
-  let autoScrollTimer = null;
+let autoScrollTimer = null;
+const autoScrollDelay = (config.ui?.autoScrollSeconds || 10) * 1000;
 
-  function resetAutoScroll() {
-    clearTimeout(autoScrollTimer);
-    if (REDUCED) return;
-    autoScrollTimer = setTimeout(() => {
-      const cur = getActiveSlideIndex();
-      // If reached the end, loop back to the first photo slide (index 1)
-      const next = (cur + 1) >= totalSlides ? 1 : (cur + 1);
-      goToSlide(next);
-      tryPlay();
-      resetAutoScroll();
-    }, autoScrollDelay);
-  }
+function resetAutoScroll() {
+  clearTimeout(autoScrollTimer);
+  if (REDUCED) return;
+  autoScrollTimer = setTimeout(() => {
+    const cur = getActiveSlideIndex();
+    // If reached the end, loop back to the first photo slide (index 1)
+    const next = (cur + 1) >= totalSlides ? 1 : (cur + 1);
+    goToSlide(next);
+    tryPlay();
+    resetAutoScroll();
+  }, autoScrollDelay);
+}
 
+function startAutoScroll() {
   resetAutoScroll();
+}
+
+function prepareSiteAssets(config) {
+  return new Promise((resolve) => {
+    const urls = ['/images/originals/0.jpg'];
+    const max = Math.min(4, config.slides.length);
+    for (let i = 0; i < max; i++) {
+      const s = config.slides[i];
+      if (s.backgroundImage) urls.push(`/images/originals/${bgJpg(s.backgroundImage)}`);
+      if (s.cutoutImage) urls.push(`/images/cutouts/${cutoutWebp(s.cutoutImage)}`);
+    }
+
+    let remaining = urls.length + (document.fonts ? 1 : 0);
+    const done = () => {
+      remaining--;
+      if (remaining <= 0) resolve();
+    };
+
+    // Safety timeout: never block longer than 3.5s
+    const timer = setTimeout(() => resolve(), 3500);
+
+    urls.forEach((url) => {
+      const img = new Image();
+      img.onload = img.onerror = () => {
+        if (typeof img.decode === 'function') {
+          img.decode().catch(() => {}).finally(() => done());
+        } else {
+          done();
+        }
+      };
+      img.src = url;
+    });
+
+    if (document.fonts) {
+      document.fonts.ready.then(() => done()).catch(() => done());
+    }
+  });
+}
 
   // Hold the auto-advance while the visitor is on a control
   const holdAutoScroll = () => clearTimeout(autoScrollTimer);
@@ -202,7 +241,6 @@ function bootSite() {
 
   // ── Scroll hint hides after first scroll ────────────────────
   lenis.on('scroll', hideScrollHint, { once: true });
-}
 
 function hideScrollHint() {
   gsap.to('.scroll-hint', { opacity: 0, duration: 0.5 });
